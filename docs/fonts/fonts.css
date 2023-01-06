@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: normal;
+  src: url('verdana/verdana.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Verdana';
+  font-style: italic;
+  font-weight: normal;
+  src: url('verdana/verdanai.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: bold;
+  src: url('verdana/verdanab.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Verdana';
+  font-style: italic;
+  font-weight: bold;
+  src: url('verdana/verdanaz.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Courier New';
+  font-style: normal;
+  font-weight: normal;
+  src: url('couriernew/cour.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Courier New';
+  font-style: normal;
+  font-weight: bold;
+  src: url('couriernew/courbd.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Courier New';
+  font-style: italic;
+  font-weight: normal;
+  src: url('couriernew/couri.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Courier New';
+  font-style: italic;
+  font-weight: bold;
+  src: url('couriernew/courbi.ttf') format('truetype');
+}
