@@ -156,9 +156,7 @@
 <pre><code>trace('Hello, world!');
 </code></pre>
 <p>Here is one with a separate function:</p>
-<pre><code>function greet(noun:String):void {
-	trace('Hello, $noun!'.apply({noun}));
-}
+<pre><code>function greet(noun:String):void ( trace('Hello, $noun!'.apply( {noun} )) );
 
 greet('world');
 </code></pre>
