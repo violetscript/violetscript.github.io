@@ -8,15 +8,15 @@
 
 
         <!-- Custom HTML head -->
-        <script rel="preload" src="https://violetscript.github.io/docs/fonts/verdana/verdana.ttf" as="font" type="font/ttf" crossorigin></script>
-        <script rel="preload" src="https://violetscript.github.io/docs/fonts/verdana/verdanai.ttf" as="font" type="font/ttf" crossorigin></script>
-        <script rel="preload" src="https://violetscript.github.io/docs/fonts/verdana/verdanab.ttf" as="font" type="font/ttf" crossorigin></script>
-        <script rel="preload" src="https://violetscript.github.io/docs/fonts/verdana/verdanaz.ttf" as="font" type="font/ttf" crossorigin></script>
+        <script rel="preload" src="https://violetscript.github.io/docs/fonts/verdana.woff2" as="font" type="font/ttf" crossorigin></script>
+        <script rel="preload" src="https://violetscript.github.io/docs/fonts/verdanai.woff2" as="font" type="font/ttf" crossorigin></script>
+        <script rel="preload" src="https://violetscript.github.io/docs/fonts/verdanab.woff2" as="font" type="font/ttf" crossorigin></script>
+        <script rel="preload" src="https://violetscript.github.io/docs/fonts/verdanaz.woff2" as="font" type="font/ttf" crossorigin></script>
         
-        <script rel="preload" src="https://violetscript.github.io/docs/fonts/couriernew/cour.ttf" as="font" type="font/ttf" crossorigin></script>
-        <script rel="preload" src="https://violetscript.github.io/docs/fonts/couriernew/courbd.ttf" as="font" type="font/ttf" crossorigin></script>
-        <script rel="preload" src="https://violetscript.github.io/docs/fonts/couriernew/couri.ttf" as="font" type="font/ttf" crossorigin></script>
-        <script rel="preload" src="https://violetscript.github.io/docs/fonts/couriernew/courbi.ttf" as="font" type="font/ttf" crossorigin></script>
+        <script rel="preload" src="https://violetscript.github.io/docs/fonts/cour.woff2" as="font" type="font/ttf" crossorigin></script>
+        <script rel="preload" src="https://violetscript.github.io/docs/fonts/courbd.woff2" as="font" type="font/ttf" crossorigin></script>
+        <script rel="preload" src="https://violetscript.github.io/docs/fonts/couri.woff2" as="font" type="font/ttf" crossorigin></script>
+        <script rel="preload" src="https://violetscript.github.io/docs/fonts/courbi.woff2" as="font" type="font/ttf" crossorigin></script>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -41,6 +41,7 @@
 
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
@@ -958,27 +959,17 @@ class C {
 <li><code>firstColumn:Int</code> zero based first column
 <ul>
 <li><code>firstLineStartUTF8 = span.script.getLineStartUTF8(span.firstLine)</code></li>
-<li><code>firstColumn = span.script.source.utf8IndexToIndex(span.start.utf8, {initialIndexUTF8: firstLineStartUTF8, initialIndex: 0})</code></li>
+<li><code>firstColumn = UTF8.utf8IndexToIndex(span.script.source, span.start.utf8, {initialIndexUTF8: firstLineStartUTF8, initialIndex: 0})</code></li>
 </ul>
 </li>
 <li><code>lastColumn:Int</code> zero based last column
 <ul>
 <li><code>lastLineStartUTF8 = span.script.getLineStartUTF8(span.lastLine)</code></li>
-<li><code>lastColumn = span.script.source.utf8IndexToIndex(span.end.utf8, {initialIndexUTF8: lastLineStartUTF8, initialIndex: 0})</code></li>
+<li><code>lastColumn = UTF8.utf8IndexToIndex(span.script.source, span.end.utf8, {initialIndexUTF8: lastLineStartUTF8, initialIndex: 0})</code></li>
 </ul>
 </li>
 </ul>
 <p><code>com.violetscript.parser.tokenizer.TokenData</code> should contain similiar fields.</p>
-<p>DISCARDED IDEAS:</p>
-<ul>
-<li>Physical: <code>endUTF8:Int</code></li>
-<li>Virtual: <code>end:StringIndex</code> (derived from <code>script</code>, <code>start.utf8</code> and <code>start.default</code>)
-<ul>
-<li><code>endDefault = span.script.source.utf8IndexToIndex(span.endUTF8, {initialIndexUTF8: span.start.utf8, initialIndex: span.start.default})</code></li>
-<li><code>end = {#default: endDefault, utf8: endUTF8}</code></li>
-</ul>
-</li>
-</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="including-and-excluding-sources"><a class="header" href="#including-and-excluding-sources">Including and Excluding Sources</a></h1>
 <h2 id="use-of-include-directive"><a class="header" href="#use-of-include-directive">Use of <code>include</code> directive</a></h2>
 <p>When using the <code>include</code> directive to include another source, make sure that source is not included in the compiler options, otherwise it will cause source conflict.</p>
@@ -1024,5 +1015,6 @@ class C {
         });
         </script>
 
+    </div>
     </body>
 </html>
