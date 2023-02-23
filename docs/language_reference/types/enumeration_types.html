@@ -152,13 +152,16 @@
                     <main>
                         <h1 id="enumeration-types"><a class="header" href="#enumeration-types">Enumeration Types</a></h1>
 <p>Enumeration types define variants with an unique number and an unique String.</p>
-<p>The following example program defines an enumeration with four constants:</p>
+<p>The following example program defines an enumeration with four variants:</p>
 <pre><code>enum ExampleEnum {
 	const VARIANT_A;
 	const VARIANT_B = 'customizedName';
 	const VARIANT_C = 64;
 	const VARIANT_D = ['anotherCustomizedName', 10];
 }
+
+// inference: 'variantA' convers to ExampleEnum.VARIANT_A
+var ee:ExampleEnum = 'variantA';
 
 ExampleEnum.VARIANT_A.valueOf() == 0;
 ExampleEnum.VARIANT_A.toString() == 'variantA';
@@ -208,6 +211,11 @@ f = f.filter('flagC');
 
 // returns an ExampleFlags with all flags present
 ExampleFlags.all;
+</code></pre>
+<h2 id="custom-numeric-type"><a class="header" href="#custom-numeric-type">Custom Numeric Type</a></h2>
+<p>Use the context word <code>wraps</code> to use a custom numeric type for an enumeration.</p>
+<pre><code>enum E wraps BigInt {
+}
 </code></pre>
 
                     </main>

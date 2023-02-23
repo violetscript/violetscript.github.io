@@ -345,13 +345,16 @@ Enum(v);
 <p>The String type can also be indexed with a <code>GraphemeIndex</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="enumeration-types"><a class="header" href="#enumeration-types">Enumeration Types</a></h1>
 <p>Enumeration types define variants with an unique number and an unique String.</p>
-<p>The following example program defines an enumeration with four constants:</p>
+<p>The following example program defines an enumeration with four variants:</p>
 <pre><code>enum ExampleEnum {
 	const VARIANT_A;
 	const VARIANT_B = 'customizedName';
 	const VARIANT_C = 64;
 	const VARIANT_D = ['anotherCustomizedName', 10];
 }
+
+// inference: 'variantA' convers to ExampleEnum.VARIANT_A
+var ee:ExampleEnum = 'variantA';
 
 ExampleEnum.VARIANT_A.valueOf() == 0;
 ExampleEnum.VARIANT_A.toString() == 'variantA';
@@ -402,6 +405,11 @@ f = f.filter('flagC');
 // returns an ExampleFlags with all flags present
 ExampleFlags.all;
 </code></pre>
+<h2 id="custom-numeric-type"><a class="header" href="#custom-numeric-type">Custom Numeric Type</a></h2>
+<p>Use the context word <code>wraps</code> to use a custom numeric type for an enumeration.</p>
+<pre><code>enum E wraps BigInt {
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="classes"><a class="header" href="#classes">Classes</a></h1>
 <pre><code>class C {
 	// constructor
@@ -445,7 +453,12 @@ class V {
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="array-types"><a class="header" href="#array-types">Array Types</a></h1>
-<p>The built-in Array class can in addition be expressed as the type expression <code>[T]</code>.</p>
+<p>The following line:</p>
+<pre><code>type ListOfNumbers = [Number];
+</code></pre>
+<p>is equivalent to:</p>
+<pre><code>type ListOfNumbers = Array.&lt;Number&gt;;
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tuple-types"><a class="header" href="#tuple-types">Tuple Types</a></h1>
 <p>Tuple types are passed by value. They are written as two or more type expressions enclosed by square brackets. For example:</p>
 <pre><code>type T = [Number, String];
@@ -914,7 +927,7 @@ class C {
 }
 </code></pre>
 <h2 id="decorators-applied-to-properties"><a class="header" href="#decorators-applied-to-properties">Decorators Applied to Properties</a></h2>
-<pre><code>function MyFieldDecorator(o:C, {name}:DecoratorProperty):void {
+<pre><code>function MyFieldDecorator(o:C, {name}:Binding):void {
     trace(name);
 }
 

@@ -162,7 +162,7 @@ class C {
 }
 </code></pre>
 <h2 id="decorators-applied-to-properties"><a class="header" href="#decorators-applied-to-properties">Decorators Applied to Properties</a></h2>
-<pre><code>function MyFieldDecorator(o:C, {name}:DecoratorProperty):void {
+<pre><code>function MyFieldDecorator(o:C, {name}:Binding):void {
     trace(name);
 }
 
