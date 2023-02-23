@@ -165,11 +165,10 @@
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="iteration"><a class="header" href="#iteration">Iteration</a></h1>
 <h2 id="basic-range-loops"><a class="header" href="#basic-range-loops">Basic Range Loops</a></h2>
-<p>The two following <code>for</code> statements are similiar. They print a sequence of integers from 0 to exclusive 10 to the console.</p>
-<pre><code>// a
+<pre><code>// a)
 for each (var i in Number.range(0, 10)) trace(i);
 
-// b
+// b)
 for (var i:Number = 0; i &lt; 10; ++i) trace(i);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="language-reference"><a class="header" href="#language-reference">Language Reference</a></h1>
@@ -332,7 +331,7 @@ v as! T;
 Enum(v);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="any-type"><a class="header" href="#any-type">Any Type</a></h1>
-<p>The type * includes values of all types.</p>
+<p>The <em>dynamic</em> type (*) includes values of all types.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="undefined-type"><a class="header" href="#undefined-type">Undefined Type</a></h1>
 <p>The undefined type includes the value <strong>undefined</strong>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="null-type"><a class="header" href="#null-type">Null Type</a></h1>
@@ -342,13 +341,13 @@ Enum(v);
 <div style="break-before: page; page-break-before: always;"></div><h1 id="number-type"><a class="header" href="#number-type">Number Type</a></h1>
 <p>There are different numeric types:</p>
 <ul>
-<li><strong>Number</strong> is a double-precision floating point</li>
-<li><strong>Decimal</strong> is a quadruple-precision floating point</li>
-<li><strong>Byte</strong> is an unsigned 8-bit integer</li>
-<li><strong>Short</strong> is a signed 16-bit integer</li>
-<li><strong>Int</strong> is a signed 32-bit integer</li>
-<li><strong>Long</strong> is a signed 64-bit integer</li>
-<li><strong>BigInt</strong> is an arbitrary-precision integer</li>
+<li><em>Number</em> is a double-precision floating point</li>
+<li><em>Decimal</em> is a quadruple-precision floating point</li>
+<li><em>Byte</em> is an unsigned 8-bit integer</li>
+<li><em>Short</em> is a signed 16-bit integer</li>
+<li><em>Int</em> is a signed 32-bit integer</li>
+<li><em>Long</em> is a signed 64-bit integer</li>
+<li><em>BigInt</em> is an arbitrary-precision integer</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="string-type"><a class="header" href="#string-type">String Type</a></h1>
 <p>The String type is UTF-8 encoded.</p>
@@ -474,6 +473,7 @@ class V {
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="array-types"><a class="header" href="#array-types">Array Types</a></h1>
+<p>The Array type is dynamically-sized.</p>
 <p>The following line:</p>
 <pre><code>type ListOfNumbers = [Number];
 </code></pre>
