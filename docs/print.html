@@ -161,13 +161,7 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="examples"><a class="header" href="#examples">Examples</a></h1>
 <p>This section shows example VioletScript programs.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello World</a></h1>
-<p>Here is a program that prints a message &quot;Hello, world!&quot; to the console:</p>
 <pre><code>trace('Hello, world!');
-</code></pre>
-<p>Here is one with a separate function:</p>
-<pre><code>function greet(noun:String):void ( trace('Hello, $noun!'.apply( {noun} )) );
-
-greet('world');
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="iteration"><a class="header" href="#iteration">Iteration</a></h1>
 <h2 id="basic-range-loops"><a class="header" href="#basic-range-loops">Basic Range Loops</a></h2>
@@ -182,7 +176,6 @@ for (var i:Number = 0; i &lt; 10; ++i) trace(i);
 <p>This section lists all language features of VioletScript, avoiding grammar and implementation details.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="types"><a class="header" href="#types">Types</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nullability"><a class="header" href="#nullability">Nullability</a></h1>
-<p>The postfix operator <code>!</code>, as in <code>o!</code>, unwraps from an union with <code>null</code>, <code>undefined</code> or both.</p>
 <p>The following line aliases the <em>dynamic</em> type (*):</p>
 <pre><code>type UndefinedOrNullOrObject = *;
 </code></pre>
