@@ -182,8 +182,29 @@ for (var i:Number = 0; i &lt; 10; ++i) trace(i);
 <p>This section lists all language features of VioletScript, avoiding grammar and implementation details.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="types"><a class="header" href="#types">Types</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nullability"><a class="header" href="#nullability">Nullability</a></h1>
-<p>The only type that by default includes <code>undefined</code> and <code>null</code> is <code>*</code>, the dynamic type. An union type can be formed to include these values. The type expression <code>T?</code> is equivalent to the union <code>null|T</code>. The type expression <code>T!</code> escapes <code>T</code> from <code>null</code> and <code>undefined</code>.</p>
 <p>The postfix operator <code>!</code>, as in <code>o!</code>, unwraps from an union with <code>null</code>, <code>undefined</code> or both.</p>
+<p>The following line aliases the <em>dynamic</em> type (*):</p>
+<pre><code>type UndefinedOrNullOrObject = *;
+</code></pre>
+<p>The following line aliases the Object type:</p>
+<pre><code>type ObjectNotUndefinedNorNull = Object;
+</code></pre>
+<p>The following line unwraps <em>o</em> from either null or undefined:</p>
+<pre><code>o!
+</code></pre>
+<p>The following line unwraps <em>T</em> from union with null and undefined:</p>
+<pre><code>type NonNullT = T!;
+</code></pre>
+<h2 id="unifying-type-with-null"><a class="header" href="#unifying-type-with-null">Unifying type with null</a></h2>
+<p>The following line:</p>
+<pre><code>type NullableT = T?;
+</code></pre>
+<p>is equivalent to:</p>
+<pre><code>type NullableT = null|T;
+</code></pre>
+<h2 id="unifying-type-with-undefined"><a class="header" href="#unifying-type-with-undefined">Unifying type with undefined</a></h2>
+<pre><code>type UndefinedOrT = undefined|T;
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proxies"><a class="header" href="#proxies">Proxies</a></h1>
 <p>VioletScript supports proxies to alter the behavior of certain operations. Currently, only <code>class</code> and <code>enum</code> can define proxies; <code>interface</code> cannot define proxies.</p>
 <h2 id="conversion-proxies"><a class="header" href="#conversion-proxies">Conversion Proxies</a></h2>
@@ -320,29 +341,36 @@ Enum(v);
 <div style="break-before: page; page-break-before: always;"></div><h1 id="any-type"><a class="header" href="#any-type">Any Type</a></h1>
 <p>The type * includes values of all types.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="undefined-type"><a class="header" href="#undefined-type">Undefined Type</a></h1>
-<p>The undefined type includes the value <code>undefined</code>.</p>
+<p>The undefined type includes the value <strong>undefined</strong>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="null-type"><a class="header" href="#null-type">Null Type</a></h1>
-<p>The null type includes the <code>null</code> value. The type expression <code>T?</code> is equivalent to <code>null|T</code> and <code>T!</code> escapes a type out of <code>undefined</code> and <code>null</code>.</p>
+<p>The null type includes the <strong>null</strong> value.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="boolean-type"><a class="header" href="#boolean-type">Boolean Type</a></h1>
-<p>The Boolean type includes the values <code>false</code> and <code>true</code>.</p>
+<p>The Boolean type includes the values <strong>false</strong> and <strong>true</strong>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="number-type"><a class="header" href="#number-type">Number Type</a></h1>
 <p>There are different numeric types:</p>
 <ul>
-<li><code>Number</code> is a double-precision floating point</li>
-<li><code>Decimal</code> is a quadruple-precision floating point</li>
-<li><code>Byte</code> is an unsigned 8-bit integer</li>
-<li><code>Short</code> is a signed 16-bit integer</li>
-<li><code>Int</code> is a signed 32-bit integer</li>
-<li><code>Long</code> is a signed 64-bit integer</li>
-<li><code>BigInt</code> is an arbitrary-precision integer</li>
+<li><strong>Number</strong> is a double-precision floating point</li>
+<li><strong>Decimal</strong> is a quadruple-precision floating point</li>
+<li><strong>Byte</strong> is an unsigned 8-bit integer</li>
+<li><strong>Short</strong> is a signed 16-bit integer</li>
+<li><strong>Int</strong> is a signed 32-bit integer</li>
+<li><strong>Long</strong> is a signed 64-bit integer</li>
+<li><strong>BigInt</strong> is an arbitrary-precision integer</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="string-type"><a class="header" href="#string-type">String Type</a></h1>
-<p>The String type is UTF-8 encoded. All methods are aware of Unicode Code Points, which means a Code Point access may be inefficient in large strings depending on what the programmer uses as index:</p>
-<ul>
-<li>Indexing a String with an <code>Int</code> internally iterates the string UTF-8 content until the Code Point index is reached.</li>
-<li>Indexing a String with a <code>StringIndex</code> object goes straight to the character. A <code>StringIndex</code> is result of different operations such as <code>indexOf()</code>.</li>
-</ul>
-<p>The String type can also be indexed with a <code>GraphemeIndex</code>.</p>
+<p>The String type is UTF-8 encoded.</p>
+<h2 id="code-points"><a class="header" href="#code-points">Code Points</a></h2>
+<p>Integer indexes are dynamically converted into octet indexes:</p>
+<pre><code>&quot;\u{10000}foo\u{10000}&quot;.substr(1, 3) == 'foo'
+</code></pre>
+<p>The following returns a StringIndex object:</p>
+<pre><code>&quot;violetscript&quot;.indexOf('let')
+</code></pre>
+<p>StringIndex indexes are always efficient:</p>
+<pre><code>&quot;\u{10000}foo\u{10000}&quot;.substr(stringIndexObject, 3)
+</code></pre>
+<h2 id="unicode-graphemes"><a class="header" href="#unicode-graphemes">Unicode Graphemes</a></h2>
+<p>The String type can be additionally indexed with a GraphemeIndex object.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="enumeration-types"><a class="header" href="#enumeration-types">Enumeration Types</a></h1>
 <p>Enumeration types define variants with an unique number and an unique String.</p>
 <p>The following example program defines an enumeration with four variants:</p>
@@ -805,7 +833,7 @@ return v;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="use-resource-statement"><a class="header" href="#use-resource-statement">Use Resource Statement</a></h1>
 <p>Binds variables to block and automatically dispose resources through the use of the <code>IDisposable</code> interface.</p>
-<pre><code>use resource (d = d1) {
+<pre><code>use resource (d = o) {
 	// procedure
 }
 </code></pre>

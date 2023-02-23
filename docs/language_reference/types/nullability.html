@@ -151,8 +151,29 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="nullability"><a class="header" href="#nullability">Nullability</a></h1>
-<p>The only type that by default includes <code>undefined</code> and <code>null</code> is <code>*</code>, the dynamic type. An union type can be formed to include these values. The type expression <code>T?</code> is equivalent to the union <code>null|T</code>. The type expression <code>T!</code> escapes <code>T</code> from <code>null</code> and <code>undefined</code>.</p>
 <p>The postfix operator <code>!</code>, as in <code>o!</code>, unwraps from an union with <code>null</code>, <code>undefined</code> or both.</p>
+<p>The following line aliases the <em>dynamic</em> type (*):</p>
+<pre><code>type UndefinedOrNullOrObject = *;
+</code></pre>
+<p>The following line aliases the Object type:</p>
+<pre><code>type ObjectNotUndefinedNorNull = Object;
+</code></pre>
+<p>The following line unwraps <em>o</em> from either null or undefined:</p>
+<pre><code>o!
+</code></pre>
+<p>The following line unwraps <em>T</em> from union with null and undefined:</p>
+<pre><code>type NonNullT = T!;
+</code></pre>
+<h2 id="unifying-type-with-null"><a class="header" href="#unifying-type-with-null">Unifying type with null</a></h2>
+<p>The following line:</p>
+<pre><code>type NullableT = T?;
+</code></pre>
+<p>is equivalent to:</p>
+<pre><code>type NullableT = null|T;
+</code></pre>
+<h2 id="unifying-type-with-undefined"><a class="header" href="#unifying-type-with-undefined">Unifying type with undefined</a></h2>
+<pre><code>type UndefinedOrT = undefined|T;
+</code></pre>
 
                     </main>
 
