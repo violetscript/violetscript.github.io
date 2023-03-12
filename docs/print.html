@@ -340,15 +340,14 @@ Enum(v);
 <p>The Boolean type includes the values <strong>false</strong> and <strong>true</strong>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="number-type"><a class="header" href="#number-type">Number Type</a></h1>
 <p>There are different numeric types:</p>
-<ul>
-<li><em>Number</em> is a double-precision floating point</li>
-<li><em>Decimal</em> is a quadruple-precision floating point</li>
-<li><em>Byte</em> is an unsigned 8-bit integer</li>
-<li><em>Short</em> is a signed 16-bit integer</li>
-<li><em>Int</em> is a signed 32-bit integer</li>
-<li><em>Long</em> is a signed 64-bit integer</li>
-<li><em>BigInt</em> is an arbitrary-precision integer</li>
-</ul>
+<pre><code>type DoublePrecisionFloatingPoint = Number;
+type QuadruplePrecisionFloatingPoint = Decimal;
+type Unsigned8BitInteger = Byte;
+type Signed16BitInteger = Short;
+type Signed32BitInteger = Int;
+type Signed64BitInteger = Long;
+type ArbitraryPrecisionInteger = BigInt;
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="string-type"><a class="header" href="#string-type">String Type</a></h1>
 <p>The String type is UTF-8 encoded.</p>
 <h2 id="code-points"><a class="header" href="#code-points">Code Points</a></h2>
