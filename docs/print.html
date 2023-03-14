@@ -176,10 +176,10 @@ for (var i:Number = 0; i &lt; 10; ++i) trace(i);
 <p>The following line aliases the Object type:</p>
 <pre><code>type ObjectNotUndefinedNorNull = Object;
 </code></pre>
-<p>The following line unwraps <em>o</em> from either null or undefined:</p>
+<p>The following line escapes <em>o</em> from either null or undefined:</p>
 <pre><code>o!
 </code></pre>
-<p>The following line unwraps <em>T</em> from union with null and undefined:</p>
+<p>The following line escapes <em>T</em> from union with null and undefined:</p>
 <pre><code>type NonNullT = T!;
 </code></pre>
 <h2 id="unifying-type-with-null"><a class="header" href="#unifying-type-with-null">Unifying type with null</a></h2>
