@@ -1,0 +1,5 @@
+# Expression Statement
+
+```
+expression;
+```

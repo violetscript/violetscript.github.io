@@ -1,0 +1,5 @@
+# Generic Instantiation Expression
+
+```
+tOrFunction.<...>;
+```

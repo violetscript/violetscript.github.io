@@ -1,0 +1,23 @@
+body {
+	background: rgb(66,2,119);
+	background: linear-gradient(0deg, rgba(66,2,119,1) 0%, rgb(170 71 255) 35%, rgba(97,108,251,1) 100%) no-repeat;
+	background-attachment: fixed;
+	color: #fff;
+	font-family: 'Noto Sans';
+	font-size: 19px;
+}
+
+.big-link {
+	font-weight: lighter;
+	font-size: 32px;
+}
+
+a {
+	text-decoration: none;
+	color: #af7;
+}
+
+h1, h2 {
+	font-family: 'Noto Sans';
+	font-weight: lighter;
+}

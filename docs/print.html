@@ -1,0 +1,1577 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>VioletScript Documentation</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="language_overview/index.html"><strong aria-hidden="true">1.</strong> Language Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language_overview/quick_tour.html"><strong aria-hidden="true">1.1.</strong> Quick Tour</a></li><li class="chapter-item expanded "><a href="language_overview/reflection.html"><strong aria-hidden="true">1.2.</strong> Reflection</a></li><li class="chapter-item expanded "><a href="language_overview/frameworks/index.html"><strong aria-hidden="true">1.3.</strong> Frameworks</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language_overview/frameworks/ue.html"><strong aria-hidden="true">1.3.1.</strong> Unreal Engine</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="language_user_guide/index.html"><strong aria-hidden="true">2.</strong> Language User Guide</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language_user_guide/types/index.html"><strong aria-hidden="true">2.1.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language_user_guide/types/nullability.html"><strong aria-hidden="true">2.1.1.</strong> Nullability</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/proxies.html"><strong aria-hidden="true">2.1.2.</strong> Proxies</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/type_conversions.html"><strong aria-hidden="true">2.1.3.</strong> Type Conversions</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/any_type.html"><strong aria-hidden="true">2.1.4.</strong> Any Type</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/undefined_type.html"><strong aria-hidden="true">2.1.5.</strong> Undefined Type</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/null_type.html"><strong aria-hidden="true">2.1.6.</strong> Null Type</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/boolean_type.html"><strong aria-hidden="true">2.1.7.</strong> Boolean Type</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/number_type.html"><strong aria-hidden="true">2.1.8.</strong> Number Type</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/string_type.html"><strong aria-hidden="true">2.1.9.</strong> String Type</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/enumeration_types.html"><strong aria-hidden="true">2.1.10.</strong> Enumeration Types</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/classes.html"><strong aria-hidden="true">2.1.11.</strong> Classes</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/interfaces.html"><strong aria-hidden="true">2.1.12.</strong> Interfaces</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/user_value_types.html"><strong aria-hidden="true">2.1.13.</strong> User Value Types</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/array_types.html"><strong aria-hidden="true">2.1.14.</strong> Array Types</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/tuple_types.html"><strong aria-hidden="true">2.1.15.</strong> Tuple Types</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/record_types.html"><strong aria-hidden="true">2.1.16.</strong> Record Types</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/function_types.html"><strong aria-hidden="true">2.1.17.</strong> Function Types</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/union_types.html"><strong aria-hidden="true">2.1.18.</strong> Union Types</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/type_parameters.html"><strong aria-hidden="true">2.1.19.</strong> Type Parameters</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/type_aliasing.html"><strong aria-hidden="true">2.1.20.</strong> Type Aliasing</a></li><li class="chapter-item expanded "><a href="language_user_guide/types/static_properties.html"><strong aria-hidden="true">2.1.21.</strong> Static Properties</a></li></ol></li><li class="chapter-item expanded "><a href="language_user_guide/exp/index.html"><strong aria-hidden="true">2.2.</strong> Expressions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language_user_guide/exp/embed.html"><strong aria-hidden="true">2.2.1.</strong> Embed Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/await.html"><strong aria-hidden="true">2.2.2.</strong> Await Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/yield.html"><strong aria-hidden="true">2.2.3.</strong> Yield Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/default.html"><strong aria-hidden="true">2.2.4.</strong> Default Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/function.html"><strong aria-hidden="true">2.2.5.</strong> Function Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/markup.html"><strong aria-hidden="true">2.2.6.</strong> Markup Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/object_initializer.html"><strong aria-hidden="true">2.2.7.</strong> Object Initializer</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/array_initializer.html"><strong aria-hidden="true">2.2.8.</strong> Array Initializer</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/member_expression.html"><strong aria-hidden="true">2.2.9.</strong> Member Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/index_expression.html"><strong aria-hidden="true">2.2.10.</strong> Index Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/call_expression.html"><strong aria-hidden="true">2.2.11.</strong> Call Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/literal.html"><strong aria-hidden="true">2.2.12.</strong> Literal</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/conditional_expression.html"><strong aria-hidden="true">2.2.13.</strong> Conditional Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/unary_expression.html"><strong aria-hidden="true">2.2.14.</strong> Unary Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/binary_expression.html"><strong aria-hidden="true">2.2.15.</strong> Binary Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/parens.html"><strong aria-hidden="true">2.2.16.</strong> Parentheses Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/list.html"><strong aria-hidden="true">2.2.17.</strong> List Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/generic_instantiation_expression.html"><strong aria-hidden="true">2.2.18.</strong> Generic Instantiation Expression</a></li><li class="chapter-item expanded "><a href="language_user_guide/exp/super_expression.html"><strong aria-hidden="true">2.2.19.</strong> Super Expression</a></li></ol></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/index.html"><strong aria-hidden="true">2.3.</strong> Statements</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language_user_guide/stmt/expression_statement.html"><strong aria-hidden="true">2.3.1.</strong> Expression Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/empty_statement.html"><strong aria-hidden="true">2.3.2.</strong> Empty Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/super_statement.html"><strong aria-hidden="true">2.3.3.</strong> Super Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/import_directive.html"><strong aria-hidden="true">2.3.4.</strong> Import Directive</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/if_statement.html"><strong aria-hidden="true">2.3.5.</strong> If Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/do_statement.html"><strong aria-hidden="true">2.3.6.</strong> Do Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/while_statement.html"><strong aria-hidden="true">2.3.7.</strong> While Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/for_statement.html"><strong aria-hidden="true">2.3.8.</strong> For Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/break_statement.html"><strong aria-hidden="true">2.3.9.</strong> Break Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/continue_statement.html"><strong aria-hidden="true">2.3.10.</strong> Continue Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/return_statement.html"><strong aria-hidden="true">2.3.11.</strong> Return Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/throw_statement.html"><strong aria-hidden="true">2.3.12.</strong> Throw Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/labeled_statement.html"><strong aria-hidden="true">2.3.13.</strong> Labeled Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/switch_statement.html"><strong aria-hidden="true">2.3.14.</strong> Switch Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/switch_type_statement.html"><strong aria-hidden="true">2.3.15.</strong> Switch Type Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/include_directive.html"><strong aria-hidden="true">2.3.16.</strong> Include Directive</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/with_statement.html"><strong aria-hidden="true">2.3.17.</strong> With Statement</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/usens.html"><strong aria-hidden="true">2.3.18.</strong> Use Namespace Directive</a></li><li class="chapter-item expanded "><a href="language_user_guide/stmt/useres.html"><strong aria-hidden="true">2.3.19.</strong> Use Resource Statement</a></li></ol></li><li class="chapter-item expanded "><a href="language_user_guide/doc-comments.html"><strong aria-hidden="true">2.4.</strong> Documentation Comments</a></li><li class="chapter-item expanded "><a href="language_user_guide/lexical_structure.html"><strong aria-hidden="true">2.5.</strong> Lexical Structure</a></li><li class="chapter-item expanded "><a href="language_user_guide/packages.html"><strong aria-hidden="true">2.6.</strong> Packages</a></li><li class="chapter-item expanded "><a href="language_user_guide/ns.html"><strong aria-hidden="true">2.7.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="language_user_guide/variable_properties.html"><strong aria-hidden="true">2.8.</strong> Variable Properties</a></li><li class="chapter-item expanded "><a href="language_user_guide/virtual_properties.html"><strong aria-hidden="true">2.9.</strong> Virtual Properties</a></li><li class="chapter-item expanded "><a href="language_user_guide/functions.html"><strong aria-hidden="true">2.10.</strong> Functions</a></li><li class="chapter-item expanded "><a href="language_user_guide/destructuring.html"><strong aria-hidden="true">2.11.</strong> Destructuring</a></li><li class="chapter-item expanded "><a href="language_user_guide/decorators.html"><strong aria-hidden="true">2.12.</strong> Decorators</a></li><li class="chapter-item expanded "><a href="language_user_guide/metadata.html"><strong aria-hidden="true">2.13.</strong> Meta-data</a></li><li class="chapter-item expanded "><a href="language_user_guide/strictness.html"><strong aria-hidden="true">2.14.</strong> Strictness</a></li><li class="chapter-item expanded "><a href="language_user_guide/builtin_objects.html"><strong aria-hidden="true">2.15.</strong> Standard Built-in Objects</a></li></ol></li><li class="chapter-item expanded "><a href="runtime/index.html"><strong aria-hidden="true">3.</strong> Runtime</a></li><li class="chapter-item expanded "><a href="compiler_guide/index.html"><strong aria-hidden="true">4.</strong> Compiler Guide</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="compiler_guide/including_excluding.html"><strong aria-hidden="true">4.1.</strong> Including and Excluding Sources</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">VioletScript Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="language-overview"><a class="header" href="#language-overview">Language Overview</a></h1>
+<p>VioletScript is a robust strongly-typed scripting language. Its syntax is similiar to ECMAScript, but it has different semantics.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="quick-tour"><a class="header" href="#quick-tour">Quick Tour</a></h1>
+<pre><code>trace('Hi!')
+
+var x: Number = 0
+
+var y = 0 // y: Number
+
+const z = 0
+
+var w: * = undefined // '*' is the any type
+
+function f1(): Number {
+    return Infinity
+}
+
+function f2(): Number (
+    Infinity
+);
+
+// you can shadow variables
+function shadowing(): void {
+    'use shadowing'
+    const x = false
+    const x = ''
+}
+
+function typeSystem(): void {
+    const array: [Number] = []
+
+    const tuple: [String, Boolean] = ['', false]
+
+    const union: Number | undefined | null = null
+
+    const nullable: null | Boolean
+
+    const nullable: Boolean? // equivalent to previous constant
+
+    // records are immutable structures
+    const record: {x: Number, y: Number} = {x: 10, y: 10}
+
+    // the following have equivalent types
+    const record: {x?: Number} = {};
+    const record: {x: undefined | Number} = {};
+
+    // as you saw above, a record field is optional
+    // when it can contain undefined.
+
+    // function types
+    const fn: (...arguments: [Number]) =&gt; void = () =&gt; {}
+}
+
+type TypeAlias = Number;
+
+function nullability(): void {
+    // asserts that `o` is non-null and non-undefined;
+    // returns a type without undefined and null.
+    o!
+
+    // optional chaining
+    o?.x.y?.z?.[i]?.()
+    a?.[i]
+    f.()
+}
+
+// enums wrap a numeric type, but are powerful and
+// can define custom properties.
+enum E {
+    X; // string is 'x', numbered 0
+    Y = 'y'; // string is 'y', numbered 1
+    Z = ['z', 10]; // string is 'z', numbered 10
+
+    function f(): void {
+        trace(this.valueOf());
+    }
+}
+
+const e: E = 'x';
+e.f(); // 0
+
+// flags have many methods by default,
+// such as toggle() and filter().
+
+[Flags]
+enum F { X; Y; Z; }
+
+const f: F = ['x'];
+const f: F = {x: true};
+const f: F = f.toggle('x');
+trace('x' in f);
+
+// generic class
+class C.&lt;T&gt; {
+    var x: T
+
+    // constructor
+    function C(x: T) {
+        this.x = x
+    }
+
+    // the type `T!` can be used to remove
+    // any undefined and null from the parameter type.
+}
+
+// a package is used for sharing items to all
+// programs.
+package com.scientific {
+    // note that curly brackets are optional
+}
+
+// a namespace acts as a simple container for
+// other items.
+namespace Q {
+    class C {
+    }
+
+    // define a function using the reserved word 'for'.
+    // use '#' to escape a reserved word.
+    function #for(x: Number): Number (
+        x + 10
+    );
+}
+
+Q.for(10);
+
+function typeTesting(): void {
+    if (animal is falcon: Falcon &amp;&amp; falcon.name.startsWith('F')) {
+        // falcon: Falcon
+    }
+
+    switch type (object) {
+        case (long: Long) {
+            // Long
+        }
+        default {
+            // anything else
+        }
+    }
+}
+</code></pre>
+<h2 id="packages"><a class="header" href="#packages">Packages</a></h2>
+<pre><code>package q.f {
+    public const someString = 'violetscript';
+}
+
+import q.f.*; // or
+import q.f.someString;
+</code></pre>
+<p>The curly brackets are optional:</p>
+<pre><code>package q.f;
+public function work(): void {
+}
+</code></pre>
+<h2 id="destructuring"><a class="header" href="#destructuring">Destructuring</a></h2>
+<pre><code>const {} = o
+const [a] = o
+
+// use '!' to assert non-null
+// and non-undefined
+const [a!] = a
+const {x!: {}} = o
+
+({} = o); // destructuring assignment
+</code></pre>
+<h2 id="include-directive-and-multiple-files"><a class="header" href="#include-directive-and-multiple-files">Include Directive and Multiple Files</a></h2>
+<p>The <code>include</code> directive is mainly used for two purposes:</p>
+<ul>
+<li>Fragmenting implementation of a class into multiple files.</li>
+<li>Specifying the static initialization order by including scripts in the wished order.</li>
+</ul>
+<p>It can appear anywhere.</p>
+<pre><code>include './anotherScript';
+</code></pre>
+<h2 id="properties"><a class="header" href="#properties">Properties</a></h2>
+<p><code>o.x</code> and <code>o['x']</code> are not the same thing as in ECMAScript. <code>o.x</code> and <code>Reflect.get(o, 'x')</code> are equivalent.</p>
+<h2 id="equality"><a class="header" href="#equality">Equality</a></h2>
+<p>Auto-boxed types do not lose equality.</p>
+<pre><code>var x: Object = 0;
+var y: Object = 0;
+assert(x == y);
+</code></pre>
+<h2 id="decorators"><a class="header" href="#decorators">Decorators</a></h2>
+<pre><code>[D]
+class C {
+}
+</code></pre>
+<p>Note that six lexical decorator names are reserved in different contexts.</p>
+<ul>
+<li><code>Flags</code> is reserved for <code>enum</code></li>
+<li><code>Value</code> is reserved for <code>class</code></li>
+<li><code>DontInit</code> is reserved for <code>clas</code></li>
+<li><code>Metadata</code> is always reserved</li>
+<li><code>Allow</code> is always reserved</li>
+<li><code>Warn</code> is always reserved</li>
+<li><code>FFI</code> is always reserved</li>
+</ul>
+<p>You can still use these decorator names if they're in a namespace or package:</p>
+<pre><code>[q.b.Metadata]
+class C {
+}
+</code></pre>
+<h2 id="type-inference"><a class="header" href="#type-inference">Type Inference</a></h2>
+<p>As of now, function definitions either at the top-level, at a package, at a class or at a namespace won't perform signature type inference and will generate verify errors if any parameter is untyped and a warning if the return is untyped.</p>
+<p>There are exceptions:</p>
+<ul>
+<li>Constructor doesn't need return type annotation.</li>
+<li>Setter followed by getter doesn't need a typed signature.</li>
+<li>Setter doesn't need return type annotation.</li>
+</ul>
+<pre><code>function get x(): Number (10);
+function set x(value) {
+}
+</code></pre>
+<p>Other than this, VioletScript will perform type inference in general for lambdas, enum variants, variable initializers, object initializers and array initializers.</p>
+<p>In the future, it'll be possible to override methods with already resolved signature omitting its types, which is often the case for libraries:</p>
+<pre><code>class Project extends Node2D {
+    override function process(delta) {
+    }
+}
+</code></pre>
+<h2 id="markup"><a class="header" href="#markup">Markup</a></h2>
+<p>A class must implement <code>IMarkupContainer</code> for supporting children in markup.</p>
+<pre><code>// equivalent
+var o = new C
+o.x = Infinity
+var o = &lt;C x={Infinity}/&gt;
+</code></pre>
+<p>Markup syntax is not based on XML and cannot contain text directly. There are different ways of adding text:</p>
+<pre><code>&lt;Container&gt;&lt;Text text='Some text'/&gt;&lt;/Container&gt;
+// if child type can be string
+&lt;Container&gt;{['Some text', 'Another text']}&lt;/Container&gt;
+</code></pre>
+<h2 id="code-safety"><a class="header" href="#code-safety">Code Safety</a></h2>
+<ul>
+<li>Assignments are only allowed in proper contexts, otherwise that would lead to productivity issues.</li>
+<li>You will use the <code>!</code> operator very often, including in destructuring, for asserting that a base is not <code>undefined</code> and <code>null</code>.</li>
+</ul>
+<h2 id="future-plans-package-manager"><a class="header" href="#future-plans-package-manager">Future Plans: Package Manager</a></h2>
+<p>The compiler did not happen yet, only the type checker. Once things get going, a package manager will be developed. Idea: use of <code>include</code> directives to add dependencies in the entry point:</p>
+<pre><code>include 'com.framework.core@0.1.0';
+</code></pre>
+<p>All publishable packages would have a configuration file anyway.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reflection"><a class="header" href="#reflection">Reflection</a></h1>
+<h2 id="constructing-types-dynamically"><a class="header" href="#constructing-types-dynamically">Constructing Types Dynamically</a></h2>
+<p>Use <code>Reflect.construct()</code> to construct a type dynamically, rather than <code>new</code>:</p>
+<pre><code>const c = SomeClass;
+const o = Reflect.construct(c, [firstArgument]);
+</code></pre>
+<h2 id="type-inspection"><a class="header" href="#type-inspection">Type Inspection</a></h2>
+<p>Use <code>Reflect.typeOf()</code> to get a type meta-object. It returns one of:</p>
+<ul>
+<li><code>null</code></li>
+<li><code>AnyType</code></li>
+<li><code>UndefinedType</code></li>
+<li><code>NullType</code></li>
+<li><code>ArrayType</code></li>
+<li><code>ClassType</code></li>
+<li><code>EnumType</code></li>
+<li><code>InterfaceType</code></li>
+<li><code>TypeWithArguments</code></li>
+<li><code>UnionType</code></li>
+<li><code>TupleType</code></li>
+<li><code>RecordType</code></li>
+<li><code>FunctionType</code></li>
+<li><code>TypeParameter</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="frameworks"><a class="header" href="#frameworks">Frameworks</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unreal-engine"><a class="header" href="#unreal-engine">Unreal Engine</a></h1>
+<p>No plans yet.</p>
+<pre><code>import com.ue.*;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="language-user-guide"><a class="header" href="#language-user-guide">Language User Guide</a></h1>
+<p>This section lists all language features of VioletScript, avoiding grammar and implementation details.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="types"><a class="header" href="#types">Types</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nullability"><a class="header" href="#nullability">Nullability</a></h1>
+<p>The following line aliases the <em>dynamic</em> type (*):</p>
+<pre><code>type UndefinedOrNullOrObject = *;
+</code></pre>
+<p>The following line aliases the Object type:</p>
+<pre><code>type ObjectNotUndefinedNorNull = Object;
+</code></pre>
+<p>The following line escapes <em>o</em> from either null or undefined:</p>
+<pre><code>o!
+</code></pre>
+<p>The following line escapes <em>T</em> from union with null and undefined:</p>
+<pre><code>type NonNullT = T!;
+</code></pre>
+<h2 id="unifying-type-with-null"><a class="header" href="#unifying-type-with-null">Unifying type with null</a></h2>
+<p>The following line:</p>
+<pre><code>type NullableT = T?;
+</code></pre>
+<p>is equivalent to:</p>
+<pre><code>type NullableT = null | T;
+</code></pre>
+<p>It can also be wrote with a <code>?</code> prefix:</p>
+<pre><code>type NullableT = ?T;
+</code></pre>
+<h2 id="unifying-type-with-undefined"><a class="header" href="#unifying-type-with-undefined">Unifying type with undefined</a></h2>
+<pre><code>type UndefinedOrT = undefined | T;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="proxies"><a class="header" href="#proxies">Proxies</a></h1>
+<p>VioletScript supports proxies to alter the behavior of certain operations. Currently, only <code>class</code> and <code>enum</code> can define proxies; <code>interface</code> cannot define proxies.</p>
+<p>Proxies cannot be overriden by subclasses.</p>
+<h2 id="conversion-proxies"><a class="header" href="#conversion-proxies">Conversion Proxies</a></h2>
+<p>These proxies do not enable use of the literal <code>this</code>.</p>
+<pre><code>class C {
+    proxy function convertImplicit(a: T): C? {
+        // implicit conversion from A to C
+    }
+
+    proxy function convertExplicit(a: T): C? {
+        // explicit conversion from A to C
+    }
+}
+</code></pre>
+<h2 id="unary-operator-proxies"><a class="header" href="#unary-operator-proxies">Unary Operator Proxies</a></h2>
+<p>These proxies do not enable use of the literal <code>this</code>.</p>
+<pre><code>class C {
+    // +o;
+    proxy function positive(a: C): R ...;
+
+    // -o;
+    proxy function negate(a: C): R ...;
+
+    // ~o;
+    proxy function bitNot(a: C): R ...;
+}
+</code></pre>
+<h2 id="binary-operator-proxies"><a class="header" href="#binary-operator-proxies">Binary Operator Proxies</a></h2>
+<p>These proxies do not enable use of the literal <code>this</code>.</p>
+<pre><code>class C {
+    // a === b;
+    proxy function equals(a: C, b: C): Boolean ...;
+
+    // a !== b;
+    proxy function notEquals(a: C, b: C): Boolean ...;
+
+    // a &lt; b;
+    proxy function lt(a: C, b: C): Boolean ...;
+
+    // a &gt; b;
+    proxy function gt(a: C, b: C): Boolean ...;
+
+    // a &lt;= b;
+    proxy function le(a: C, b: C): Boolean ...;
+
+    // a &gt;= b;
+    proxy function ge(a: C, b: C): Boolean ...;
+
+    // a + b;
+    proxy function add(a: C, b: B): R ...;
+
+    // a - b;
+    proxy function subtract(a: C, b: B): R ...;
+
+    // a * b;
+    proxy function multiply(a: C, b: B): R ...;
+
+    // a / b;
+    proxy function divide(a: C, b: B): R ...;
+
+    // a % b;
+    proxy function remainder(a: C, b: B): R ...;
+
+    // a ** b;
+    proxy function pow(a: C, b: B): R ...;
+
+    // a &amp; b;
+    proxy function bitAnd(a: C, b: B): R ...;
+
+    // a ^ b;
+    proxy function bitXor(a: C, b: B): R ...;
+
+    // a | b;
+    proxy function bitOr(a: C, b: B): R ...;
+
+    // a &lt;&lt; b;
+    proxy function leftShift(a: C, b: B): R ...;
+
+    // a &gt;&gt; b;
+    proxy function rightShift(a: C, b: B): R ...;
+
+    // a &gt;&gt;&gt; b;
+    proxy function unsignedRightShift(a: C, b: B): R ...;
+}
+</code></pre>
+<h2 id="index-proxies"><a class="header" href="#index-proxies">Index Proxies</a></h2>
+<p>These proxies enable use of the literal <code>this</code>.</p>
+<pre><code>class C {
+    // o[i];
+    proxy function getIndex(i: I): V (
+        ...
+    );
+
+    // o[i] = v;
+    proxy function setIndex(i: I, v: V): void {
+        ...
+    }
+
+    // delete o[i];
+    proxy function deleteIndex(i: I): Boolean {
+    	...
+    }
+
+    // v in o;
+    proxy function has(v: V): Boolean (
+    	...
+    );
+}
+</code></pre>
+<h2 id="iteration-proxies"><a class="header" href="#iteration-proxies">Iteration Proxies</a></h2>
+<p>These proxies enable use of the literal <code>this</code>.</p>
+<pre><code>class C {
+    // for..in
+    proxy function iterateKeys(): Generator.&lt;K&gt; {
+        // yield
+    }
+
+    // for each
+    proxy function iterateValues(): Generator.&lt;V&gt; {
+        // yield
+    }
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="type-conversions"><a class="header" href="#type-conversions">Type Conversions</a></h1>
+<h2 id="conversion-syntax"><a class="header" href="#conversion-syntax">Conversion Syntax</a></h2>
+<pre><code>// optional conversion
+v as T
+v as? T
+
+// forced conversion
+v as! T
+Enum(v)
+
+// conversion constructors
+String(v)
+Number(n)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="any-type"><a class="header" href="#any-type">Any Type</a></h1>
+<p>The <em>dynamic</em> type (*) includes values of all types.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="undefined-type"><a class="header" href="#undefined-type">Undefined Type</a></h1>
+<p>The undefined type includes the value <strong>undefined</strong>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="null-type"><a class="header" href="#null-type">Null Type</a></h1>
+<p>The null type includes the <strong>null</strong> value.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="boolean-type"><a class="header" href="#boolean-type">Boolean Type</a></h1>
+<p>The Boolean type includes the values false and true.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="number-type"><a class="header" href="#number-type">Number Type</a></h1>
+<p>There are different numeric types:</p>
+<pre><code>type DoublePrecisionFloatingPoint = Number;
+
+type QuadruplePrecisionFloatingPoint = Decimal;
+
+type Unsigned8BitInteger = Byte;
+
+type Signed16BitInteger = Short;
+
+type Signed32BitInteger = Int;
+
+type Signed64BitInteger = Long;
+
+type ArbitraryPrecisionInteger = BigInt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="string-type"><a class="header" href="#string-type">String Type</a></h1>
+<p>The String type is UTF-16 encoded for compatibility with the ECMA-262 String type.</p>
+<h2 id="code-points"><a class="header" href="#code-points">Code Points</a></h2>
+<p>You can easily iterate code points over a string with <code>CodePointIterator</code>:</p>
+<pre><code>var iterator = 'v'.codePoints();
+iterator.next(); // 0x76
+iterator.next(); // 0 (no character)
+iterator.hasRemaining; // false
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="enumeration-types"><a class="header" href="#enumeration-types">Enumeration Types</a></h1>
+<p>Enumeration types define variants with an unique number and an unique string.</p>
+<p>The following example program defines an enumeration with four variants:</p>
+<pre><code>enum E {
+	VARIANT_A;
+	VARIANT_B = 'customizedName';
+	VARIANT_C = 64;
+	VARIANT_D = ['anotherCustomizedName', 10];
+}
+
+// inference: 'variantA' converts to E.VARIANT_A
+var e: E = 'variantA';
+
+E.VARIANT_A.valueOf() == 0;
+E.VARIANT_A.toString() == 'variantA';
+
+E.VARIANT_B.valueOf() == 1;
+E.VARIANT_B.toString() == 'customizedName';
+
+E.VARIANT_C.valueOf() == 64;
+E.VARIANT_C.toString() == 'variantC';
+
+E.VARIANT_D.valueOf() == 10;
+E.VARIANT_D.toString() == 'anotherCustomizedName';
+</code></pre>
+<h2 id="custom-properties"><a class="header" href="#custom-properties">Custom Properties</a></h2>
+<p>The block of an <code>enum</code> definition can contain anything, as the following program demonstrates:</p>
+<pre><code>enum E {
+	function f(): void {
+	}
+}
+</code></pre>
+<h2 id="type-inference-1"><a class="header" href="#type-inference-1">Type Inference</a></h2>
+<p>Wherever a value of an <code>enum</code> is expected, a string literal can be used. In addition, for flags enumerations, an object initializer, array initializer or <code>undefined</code> can also be used.</p>
+<pre><code>var e: E = E.VARIANT_A
+var e: E = 'variantA'
+
+// flags inference
+var f: F = undefined
+var f: F = {}
+var f: F = []
+</code></pre>
+<h2 id="flags"><a class="header" href="#flags">Flags</a></h2>
+<p>Flags enumerations, prefixed with the special <code>Flags</code> decorator, define combinatory variants. A variant number is either 1 or power of two.</p>
+<pre><code>[Flags]
+enum F {
+	A; // 1
+	B; // 2
+	C; // 4
+}
+
+var f: F = [ 'a' ];
+var q: F = { b: true };
+
+f += 'c'; // f.include('c')
+f -= 'c'; // f.exclude('c')
+f = f.toggle('c');
+f = f.filter('c');
+'c' in f;
+
+// returns F value with all flags present
+F.all;
+
+// checks if flags are empty
+f == []
+f == undefined
+</code></pre>
+<h2 id="custom-numeric-type"><a class="header" href="#custom-numeric-type">Custom Numeric Type</a></h2>
+<p>Use the context word <code>wraps</code> to use a custom numeric type for an enumeration.</p>
+<pre><code>enum E wraps BigInt {
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="classes"><a class="header" href="#classes">Classes</a></h1>
+<pre><code>class C {
+	// constructor
+	function C() {
+		super();
+	}
+
+	// override instance method
+	override function toString(): String (
+		'violetscript'
+	);
+
+	// final instance method: cannot be overriden
+	// by subtypes.
+	final function finalMethod(): void {
+	}
+}
+
+class F extends C implements I {
+}
+
+// generic class
+class G.&lt;T&gt; {
+}
+
+// final class: cannot extend
+final class Final {
+}
+</code></pre>
+<h2 id="prohibit-object-initialiser"><a class="header" href="#prohibit-object-initialiser">Prohibit Object Initialiser</a></h2>
+<p>Use the <code>DontInit</code> decorator to prohibit object initializer on a specific class.</p>
+<pre><code>[DontInit]
+class C {
+}
+
+var o: C = {}; // VerifyError!
+</code></pre>
+<h1 id="method-overriding"><a class="header" href="#method-overriding">Method Overriding</a></h1>
+<ul>
+<li>An override can specify either additional optional parameters or one additional rest parameter.</li>
+<li>An override can specify a more specific return type: either a subtype or, if the original method's return is <code>*</code>, any different type.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="interfaces"><a class="header" href="#interfaces">Interfaces</a></h1>
+<pre><code>interface I {
+	// required method
+	function rf(): void;
+
+	// optional method
+	function of(): void {
+	}
+}
+
+// generic interface
+interface G.&lt;T&gt; {
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="user-value-types"><a class="header" href="#user-value-types">User Value Types</a></h1>
+<p>Value classes are passed by value. They can be defined by using the special <code>Value</code> decorator, as follows:</p>
+<pre><code>[Value]
+class V {
+	const x: Number;
+	const y: Number;
+}
+</code></pre>
+<p>Fields are all read-only. You can re-assign a field from an existing instance like this:</p>
+<pre><code>o = { x: newValue, ...o };
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="array-types"><a class="header" href="#array-types">Array Types</a></h1>
+<p>The Array type is dynamically-sized.</p>
+<p>The following line:</p>
+<pre><code>type ListOfNumbers = [Number];
+</code></pre>
+<p>is equivalent to:</p>
+<pre><code>type ListOfNumbers = Array.&lt;Number&gt;;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuple-types"><a class="header" href="#tuple-types">Tuple Types</a></h1>
+<p>Tuple types are passed by value. They are written as two or more type expressions enclosed by square brackets. For example:</p>
+<pre><code>type T = [Number, String];
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="record-types"><a class="header" href="#record-types">Record Types</a></h1>
+<p>Record types are immutable structures passed by value. They are written in curly brackets. For example:</p>
+<pre><code>type R = {x: Number, y: undefined | RegExp};
+</code></pre>
+<p>A field is optional when it possibly contains <code>undefined</code>. The following types are equivalent:</p>
+<pre><code>type R1 = {x?: Number};
+type R2 = {x: undefined | Number};
+</code></pre>
+<h2 id="field-order"><a class="header" href="#field-order">Field Order</a></h2>
+<p>The sequence of the record type fields is sensitive. A type <code>{x: X, y: Y}</code> differs from <code>{y: Y, x: X}</code>. This allows for organizing memory layout.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="function-types"><a class="header" href="#function-types">Function Types</a></h1>
+<p>Function types inherit the <code>Function</code> class.</p>
+<pre><code>// parameterless
+type F1 = () =&gt; void;
+
+// with required parameter
+type F2 = (a: Number) =&gt; void;
+
+// with optional parameter
+type F3 = (a?: Number) =&gt; void;
+
+// with rest parameter
+type F4 = (...a: [Number]) =&gt; void;
+</code></pre>
+<h2 id="parameter-names"><a class="header" href="#parameter-names">Parameter Names</a></h2>
+<p>A type <code>(a: T) =&gt; void</code> differs from a type <code>(_: T) =&gt; void</code> because the parameter names differ.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="union-types"><a class="header" href="#union-types">Union Types</a></h1>
+<pre><code>type U = undefined | Number | Boolean;
+
+// &quot;|&quot; prefix
+
+type XoY =
+    | X
+    | Y
+</code></pre>
+<h2 id="member-order"><a class="header" href="#member-order">Member Order</a></h2>
+<p>The sequence of the union members is sensitive. A type <code>X | Y</code> differs from <code>Y | Z</code>. This allows for organizing memory layout.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="type-parameters"><a class="header" href="#type-parameters">Type Parameters</a></h1>
+<p>Type parameters can specify constraints.</p>
+<pre><code>class G.&lt;T: I&gt; // T implements or extends I
+	where T is K  // T also implements or extends K
+{
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="type-aliasing"><a class="header" href="#type-aliasing">Type Aliasing</a></h1>
+<p>Use the context keyword <code>type</code> for defining type aliases.</p>
+<pre><code>type AliasName = q.f.C;
+
+type G.&lt;T&gt; = g.C.&lt;T&gt;;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="static-properties"><a class="header" href="#static-properties">Static Properties</a></h1>
+<p>Use the <code>static</code> modifier to define a property that is attached to the type rather than attached to its instance.</p>
+<pre><code>class C {
+	static const x: Number = 10;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="expressions"><a class="header" href="#expressions">Expressions</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="embed-expression"><a class="header" href="#embed-expression">Embed Expression</a></h1>
+<p>The context keyword <code>embed</code> can be used to include text or octet-stream of relative path to the current script.</p>
+<pre><code>var ba:ByteArray = embed './octetStream.bin';
+var str:String = embed './someText.txt';
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="await-expression"><a class="header" href="#await-expression">Await Expression</a></h1>
+<p>The <code>await</code> expression causes the surrounding function to be asynchronous, returning a Promise. It's currently not allowed in the top-level of a program.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="yield-expression"><a class="header" href="#yield-expression">Yield Expression</a></h1>
+<p>The <code>yield</code> expression causes the surrounding function to be a generator, returning <code>Generator</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="default-expression"><a class="header" href="#default-expression">Default Expression</a></h1>
+<p>The <code>default</code> expression returns the default value of the given type.</p>
+<pre><code>default(Number); // 0
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="function-expression"><a class="header" href="#function-expression">Function Expression</a></h1>
+<pre><code>a =&gt; 10;
+() =&gt; 10;
+
+(function(): void {})();
+(function(): Number (10 ** 2))();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="markup-expression"><a class="header" href="#markup-expression">Markup Expression</a></h1>
+<p>VioletScript supports markup similiar to XML, with the only exception of text nodes.</p>
+<p>Remarks:</p>
+<ul>
+<li>The markup syntax can be used to initialize any user class with the following restrictions:
+<ul>
+<li>The class must not have a <code>DontInit</code> decorator.</li>
+<li>The class constructor must be either empty or receive only optional parameters and/or rest parameter.</li>
+</ul>
+</li>
+<li>A container class must implement <code>IMarkupContainer.&lt;T&gt;</code>.</li>
+<li>A curly brackets into the markup must contain an expression of the array type.</li>
+</ul>
+<pre><code>const c = (
+	&lt;Container&gt;
+        &lt;Item n=Infinity v={10**2} checked/&gt;
+        {childrenArrayRest}
+    &lt;/Container&gt;
+);
+
+// qualified tag name
+&lt;com.q.a.X/&gt;;
+
+// qualified tag name using colon
+&lt;s:Button/&gt;;
+
+const a: [Container] = &lt;&gt;
+    &lt;Container/&gt;
+    &lt;!-- spread --&gt;
+    { [&lt;Container/&gt;,&lt;Container/&gt;,&lt;Container/&gt;] }
+&lt;/&gt;;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="object-initializer"><a class="header" href="#object-initializer">Object Initializer</a></h1>
+<p>Object initializer, written in curly brackets, supports shorthand property notation, trailling comma, spread components (<code>...spreadObject</code>) and a suffix type annotation.</p>
+<p>Object initializer can only initialize:</p>
+<ul>
+<li><code>*</code> (instantiates an empty <code>Object</code>, not allowing spread)</li>
+<li><code>Map</code></li>
+<li>Flags enumeration</li>
+<li>Record type</li>
+<li>Class without a <code>DontInit</code> decorator</li>
+</ul>
+<p>Additional semantics:</p>
+<ul>
+<li>Using object initializer to initialize a plain object results in an object whose <code>constructor</code> property returns <code>Object</code>.</li>
+<li>Spread elements are evaluated before fields when initializing flags, record or class, that is, anything other than <code>Map</code>.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="array-initializer"><a class="header" href="#array-initializer">Array Initializer</a></h1>
+<p>Array initializer, written in square brackets, supports ellisions, spread components (<code>...otherArray</code>) and suffix type annotation.</p>
+<p>Array initializer can only initialize:</p>
+<ul>
+<li><code>*</code> (instantiates a <code>[*]</code> array)</li>
+<li><code>Array</code></li>
+<li><code>Set</code></li>
+<li>Flags enumerations</li>
+<li>Tuples</li>
+</ul>
+<h2 id="spread"><a class="header" href="#spread">Spread</a></h2>
+<p>A spread component can either be a compatible <code>Array</code>, iterator or flags.</p>
+<ul>
+<li><em>Flags:</em> Flags type itself.</li>
+<li><em>Any:</em> Any at compile-time; at runtime it must be a compatible iterator or array, otherwise an error occurs.</li>
+<li><em>Set:</em> Iterator.</li>
+<li><em>Array:</em> Same array type or iterator.</li>
+<li><em>Map</em>: Unallowed.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="member-expression"><a class="header" href="#member-expression">Member Expression</a></h1>
+<pre><code>o.x;
+
+// optional member access in case o is undefined or null
+o?.x;
+</code></pre>
+<p>If <code>o</code> is a package, then <code>o.x</code> can resolve to a subpackage in last attempt.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="index-expression"><a class="header" href="#index-expression">Index Expression</a></h1>
+<p>Unlike EcmaScript, the index expression, in the form <code>o[k]</code>, uses an indexing mechanism that is separate from the object properties mechanism. This resolves conflict of properties and indexes. Methods such as <code>Reflect.get(...)</code> can be used in case a property must be dynamically resolved.</p>
+<p>The index expression is indentation-aware.</p>
+<pre><code>o[k];
+
+// optional index in case o is undefined or null
+o?.[k];
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="call-expression"><a class="header" href="#call-expression">Call Expression</a></h1>
+<p>Call expression is indentation-aware.</p>
+<pre><code>f();
+
+// optional call in case f is undefined or null
+f?.();
+</code></pre>
+<h2 id="special-behavior"><a class="header" href="#special-behavior">Special Behavior</a></h2>
+<ul>
+<li>If <code>f</code> is an enumeration, the call expression corresponds to a forced conversion from either String or numeric value to the enumeration.</li>
+<li>If <code>f</code> is a type, but not an enumeration, it corresponds to the use of the <code>new</code> operator.
+<ul>
+<li>If <code>f</code> is the String type, it corresponds to a string conversion.</li>
+</ul>
+</li>
+</ul>
+<pre><code>E(v)
+T(ctorArguments)
+String(v) // string conversion
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="literal"><a class="header" href="#literal">Literal</a></h1>
+<h2 id="regular-expression-literal"><a class="header" href="#regular-expression-literal">Regular Expression Literal</a></h2>
+<pre><code>/zxc/i
+</code></pre>
+<h2 id="this-literal"><a class="header" href="#this-literal">This Literal</a></h2>
+<pre><code>this
+</code></pre>
+<h2 id="string-literal"><a class="header" href="#string-literal">String Literal</a></h2>
+<pre><code>'violetscript'
+</code></pre>
+<h2 id="null-literal"><a class="header" href="#null-literal">Null Literal</a></h2>
+<pre><code>null
+</code></pre>
+<h2 id="boolean-literal"><a class="header" href="#boolean-literal">Boolean Literal</a></h2>
+<pre><code>false
+true
+</code></pre>
+<h2 id="numeric-literal"><a class="header" href="#numeric-literal">Numeric Literal</a></h2>
+<pre><code>0
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="conditional-expression"><a class="header" href="#conditional-expression">Conditional Expression</a></h1>
+<pre><code>c ? x : y;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unary-expression"><a class="header" href="#unary-expression">Unary Expression</a></h1>
+<pre><code>await f()
+yield v
+delete r[k]
+typeof v
+void v
+!v
++v
+-v
+~v
+v!
+++v
+--v
+v++
+v--
+new C
+</code></pre>
+<h2 id="incrementdecrement-semantics"><a class="header" href="#incrementdecrement-semantics">Increment/Decrement Semantics</a></h2>
+<p>The increment and decrement operators can also be applied to expressions in the form <code>x!</code>, such as <code>o[k]!++;</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="binary-expression"><a class="header" href="#binary-expression">Binary Expression</a></h1>
+<pre><code>k in o;
+x + y
+x - y
+x * y
+x / y
+x % y // remainder
+x ** y
+x &amp;&amp; y
+x ^^ y
+x || y
+x ?? y
+x &amp; y
+x ^ y
+x | y
+x &lt;&lt; y
+x &gt;&gt; y
+x &gt;&gt;&gt; y
+x == y
+x != y
+x === y
+x !== y
+x &lt; y
+x &gt; y
+x &lt;= y
+x &gt;= y
+nonDestructuringPattern = y
+destructuringPattern = y
+nonDestructuringPattern compound= y
+
+v is T;
+v is q : Q;
+v instanceof T;
+
+// optional conversion; both equivalent
+v as T;
+v as? T;
+
+// forced conversion
+v as! T;
+</code></pre>
+<h2 id="assignment"><a class="header" href="#assignment">Assignment</a></h2>
+<ul>
+<li>Assignment is only allowed as a statement, as a <code>for</code> update and as the right-hand side of another assignment.</li>
+<li>It is allowed to use compound assigning applied to non-null index:</li>
+</ul>
+<pre><code>o[k]! += 1;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="parentheses-expression"><a class="header" href="#parentheses-expression">Parentheses Expression</a></h1>
+<pre><code>(v)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="list-expression"><a class="header" href="#list-expression">List Expression</a></h1>
+<pre><code>x, y
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="generic-instantiation-expression"><a class="header" href="#generic-instantiation-expression">Generic Instantiation Expression</a></h1>
+<pre><code>tOrFunction.&lt;...&gt;;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="super-expression"><a class="header" href="#super-expression">Super Expression</a></h1>
+<pre><code>super.xOrF
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="statements"><a class="header" href="#statements">Statements</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="expression-statement"><a class="header" href="#expression-statement">Expression Statement</a></h1>
+<pre><code>expression;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="empty-statement"><a class="header" href="#empty-statement">Empty Statement</a></h1>
+<pre><code>;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="super-statement"><a class="header" href="#super-statement">Super Statement</a></h1>
+<pre><code>super();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="import-directive"><a class="header" href="#import-directive">Import Directive</a></h1>
+<pre><code>import q.u.*;
+import q.**; // recursive; imports `q` and all subpackages
+import q.u.B;
+import A = q.u.B;
+import Qu = q.u.*;
+</code></pre>
+<h2 id="import-from-global"><a class="header" href="#import-from-global">Import from global</a></h2>
+<p>The <code>global</code> identifier may be used to alias a property of the global package.</p>
+<pre><code>import GRegExp = global.RegExp;
+</code></pre>
+<h2 id="subpackage-aliasing"><a class="header" href="#subpackage-aliasing">Subpackage aliasing</a></h2>
+<p>A subpackage from a package can be accessed even when the base package is aliased.</p>
+<pre><code>// com.scientific.fns.f
+import sci = com.scientific.*;
+sci.fns.f();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="if-statement"><a class="header" href="#if-statement">If Statement</a></h1>
+<pre><code>if (c)
+{
+	//
+}
+else
+{
+	//
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="do-statement"><a class="header" href="#do-statement">Do Statement</a></h1>
+<pre><code>do
+{
+	//
+}
+while (c);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="while-statement"><a class="header" href="#while-statement">While Statement</a></h1>
+<pre><code>while (c)
+{
+	//
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="for-statement"><a class="header" href="#for-statement">For Statement</a></h1>
+<pre><code>for (i; c; u)
+{
+	// procedure
+}
+for (var i; c; u)
+{
+	// procedure
+}
+for (var i in o)
+{
+	// procedure
+}
+for (i in o)
+{
+	// procedure
+}
+for each (var i in o)
+{
+	// procedure
+}
+for each (i in o)
+{
+	// procedure
+}
+</code></pre>
+<p><code>for..in</code> should work with:</p>
+<ul>
+<li>Object with <code>proxy::iterateKeys</code></li>
+</ul>
+<p><code>for each</code> should work with:</p>
+<ul>
+<li>Object with <code>proxy::iterateValues</code> </li>
+<li>Iterator</li>
+<li>Any type (<code>*</code>)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="break-statement"><a class="header" href="#break-statement">Break Statement</a></h1>
+<pre><code>break;
+break someLabel;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="continue-statement"><a class="header" href="#continue-statement">Continue Statement</a></h1>
+<pre><code>continue;
+continue someLabel;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="return-statement"><a class="header" href="#return-statement">Return Statement</a></h1>
+<pre><code>return;
+return v;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="throw-statement"><a class="header" href="#throw-statement">Throw Statement</a></h1>
+<pre><code>throw someError;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="labeled-statement"><a class="header" href="#labeled-statement">Labeled Statement</a></h1>
+<pre><code>someLabel: for (;;)
+{
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="switch-statement"><a class="header" href="#switch-statement">Switch Statement</a></h1>
+<p>Unlike EcmaScript, the switch statement does not fallthrough in cases, which prevents general programmer bugs.</p>
+<pre><code>switch (d)
+{
+	case 10:
+	{
+		// procedure
+	}
+	default:
+	{
+		// procedure
+	}
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="switch-type-statement"><a class="header" href="#switch-type-statement">Switch Type Statement</a></h1>
+<pre><code>switch type (d)
+{
+	case (n:Number)
+	{
+	}
+	default
+	{
+	}
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="include-directive"><a class="header" href="#include-directive">Include Directive</a></h1>
+<p>Combines statement sequence from a script with the current statement sequence.</p>
+<pre><code>include './anotherScript';
+</code></pre>
+<p>This also allows for partially implementing classes, similiar to C#'s <code>partial</code> classes. For example:</p>
+<pre><code>class C {
+    var x: Number = 10;
+
+    include './foo';
+}
+</code></pre>
+<p>foo.vs:</p>
+<pre><code>function f(): void {
+    trace(this.x);
+}
+</code></pre>
+<h2 id="path-resolution"><a class="header" href="#path-resolution">Path resolution</a></h2>
+<ul>
+<li>You do not need to specify the <code>.vs</code> extension.</li>
+<li>You do not need to specify <code>index.vs</code> when resolving to a directory.</li>
+</ul>
+<pre><code>// if './core' is a directory, the following lines
+// are equivalent:
+include './core';
+include './core/index.vs';
+</code></pre>
+<h2 id="packages-1"><a class="header" href="#packages-1">Packages</a></h2>
+<p>It is allowed to define packages in an included script as long as it is included from a top-level context:</p>
+<pre><code>// foo.vs
+include './bar';
+
+// bar.vs
+package q.b;
+</code></pre>
+<h2 id="visibility"><a class="header" href="#visibility">Visibility</a></h2>
+<p><code>include</code> inherits the scope from where it is included.</p>
+<pre><code>// foo.vs
+include './bar';
+
+class C {
+}
+
+// bar.vs
+var x: C?;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="with-statement"><a class="header" href="#with-statement">With Statement</a></h1>
+<pre><code>with (o)
+{
+	// procedure
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="use-namespace-directive"><a class="header" href="#use-namespace-directive">Use Namespace Directive</a></h1>
+<p>Opens namespace lexically.</p>
+<pre><code>use namespace someNS;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="use-resource-statement"><a class="header" href="#use-resource-statement">Use Resource Statement</a></h1>
+<p>Binds variables to block and automatically dispose resources through the use of the <code>IDisposable</code> interface.</p>
+<pre><code>use resource (disposable = obj)
+{
+	// procedure
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="documentation-comments"><a class="header" href="#documentation-comments">Documentation Comments</a></h1>
+<p>VioletScript supports Markdown comments with special <code>@</code> tags. They're called VioletDoc comments.</p>
+<p>Here is an example:</p>
+<pre><code>/**
+ * The function `f` does nothing.
+ *
+ * @example
+ *
+ * ```
+ * f();
+ * ```
+ *
+ * @throws {ArgumentError} If argument is invalid.
+ */
+function f(): void {
+}
+</code></pre>
+<h2 id="supported-tags"><a class="header" href="#supported-tags">Supported Tags</a></h2>
+<ul>
+<li><code>@deprecated</code></li>
+<li><code>@param paramName Description.</code></li>
+<li><code>@return A return value.</code></li>
+<li><code>@throws {C} Optional description.</code></li>
+<li><code>@internal Internal comment.</code></li>
+</ul>
+<h2 id="structural-types"><a class="header" href="#structural-types">Structural Types</a></h2>
+<p>VioletDoc comments on individual record fields are not supported currently:</p>
+<pre><code>type R = {
+    /**
+     * Some field.
+     */
+    someField: String,
+};
+</code></pre>
+<p>You can attach a VioletDoc comment to the type alias in this situation.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lexical-structure"><a class="header" href="#lexical-structure">Lexical Structure</a></h1>
+<h2 id="escape-reserved-words"><a class="header" href="#escape-reserved-words">Escape Reserved Words</a></h2>
+<pre><code>var #catch: Number = 10;
+</code></pre>
+<h2 id="indentation-aware-string-literal"><a class="header" href="#indentation-aware-string-literal">Indentation-Aware String Literal</a></h2>
+<pre><code>var s = '''
+		Line 1
+		Line 2
+		''';
+</code></pre>
+<h2 id="hexadecimal-and-binary-integer-literal"><a class="header" href="#hexadecimal-and-binary-integer-literal">Hexadecimal and Binary Integer Literal</a></h2>
+<pre><code>0x0A;
+0b00010;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="packages-2"><a class="header" href="#packages-2">Packages</a></h1>
+<p>A package is a globally reusable namespace. The following program demonstrates basic use of <code>package</code> definitions:</p>
+<pre><code>package {
+	// global package
+	public const globalX: Number = 10;
+}
+package com.qux.bar {
+	public function f(): void {
+	}
+	public function q(): void {
+	}
+}
+
+globalX;
+global.globalX; // equivalent
+
+com.qux.bar.f();
+com.qux.bar.q();
+global.com.qux.bar.f();
+
+// open com.qux.bar in lexical scope
+{
+	import com.qux.bar.*;
+	f();
+}
+</code></pre>
+<p>When curly brackets are omitted, all the following statements are part of the package:</p>
+<pre><code>package com.fun;
+
+public function haveFun(): String (
+    'haveFun'
+);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="namespaces"><a class="header" href="#namespaces">Namespaces</a></h1>
+<pre><code>namespace Q {
+	function f(): void {
+	}
+}
+</code></pre>
+<h2 id="namespace-alias"><a class="header" href="#namespace-alias">Namespace Alias</a></h2>
+<pre><code>namespace A = q.Q;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variable-properties"><a class="header" href="#variable-properties">Variable Properties</a></h1>
+<pre><code>// writable
+var x: Number = 10
+
+// read-only
+const x: Number = 10
+
+// type inference
+const x = 10
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="virtual-properties"><a class="header" href="#virtual-properties">Virtual Properties</a></h1>
+<pre><code>function get x(): Number (
+	10 ** 2
+);
+
+function set x(v) {
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+<pre><code>function f(): void {
+}
+
+function fWithRequiredParameter(a: Number): void {
+}
+
+function fWithOptionalParameter(a: Number = 10): void {
+}
+
+function fWithRestParameter(...a: [Number]): void {
+}
+
+function fWithExpressionBody(): String (
+	'violetscript'
+);
+
+// native function
+native function fNative(): void;
+</code></pre>
+<h2 id="generators"><a class="header" href="#generators">Generators</a></h2>
+<p>A function is a generator if it uses the <code>yield</code> operator.</p>
+<p>Remarks:</p>
+<ul>
+<li>Generator functions return a Generator iterator.</li>
+<li>A generator function finishes returning undefined.</li>
+</ul>
+<pre><code>function f(): Generator.&lt;Number&gt; {
+	yield 10;
+}
+
+const it = f(); // Iterator.&lt;Number&gt;
+it.next(); // {done: false, value: 10}
+it.next(); // {done: true, value: undefined}
+</code></pre>
+<h2 id="asynchronous-functions"><a class="header" href="#asynchronous-functions">Asynchronous Functions</a></h2>
+<p>A function is asynchronous if it uses the <code>await</code> operator.</p>
+<p>Remarks:</p>
+<ul>
+<li>Asynchronous functions return Promise.</li>
+<li>Any thrown errors will reject the Promise.</li>
+</ul>
+<pre><code>function f(): Number {
+	await a();
+	return 10;
+}
+</code></pre>
+<h2 id="generic-functions"><a class="header" href="#generic-functions">Generic Functions</a></h2>
+<pre><code>function genericFunction.&lt;T&gt;(): void {
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="destructuring-1"><a class="header" href="#destructuring-1">Destructuring</a></h1>
+<h2 id="array-destructuring"><a class="header" href="#array-destructuring">Array Destructuring</a></h2>
+<p>Array destructuring syntax can in addition be used for tuples and user proxies.</p>
+<pre><code>[x, y] = someArray;
+</code></pre>
+<h2 id="record-destructuring"><a class="header" href="#record-destructuring">Record Destructuring</a></h2>
+<pre><code>({x} = someObject);
+</code></pre>
+<h2 id="non-null-assertion"><a class="header" href="#non-null-assertion">Non-null assertion</a></h2>
+<p>You may get a verify error when destructuring from something that contains <code>undefined</code> or <code>null</code>. You can use exclamation (<code>!</code>) to assert the base is non-null and non-undefined:</p>
+<pre><code>const [{x!: {y}}!]! = o;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="decorators-1"><a class="header" href="#decorators-1">Decorators</a></h1>
+<p>A decorator is a function that either returns <code>void</code> or returns another function that returns <code>void</code>, applied to either a type, property or method as expressions enclosed by square brackets. Decorators cannot be applied everywhere.</p>
+<p><code>[D(x = 10)]</code> is equivalent to <code>[D({x: 10})]</code>.</p>
+<p>Note that 4 lexical names may be reserved in some contexts. Jump to the <em>Reserved Lexical Decorators</em> section below for quick information.</p>
+<h2 id="decorators-applied-to-types"><a class="header" href="#decorators-applied-to-types">Decorators Applied to Types</a></h2>
+<pre><code>function MyTypeDecorator(type: Class): void {
+}
+
+[MyTypeDecorator]
+class C {
+}
+</code></pre>
+<h2 id="decorators-applied-to-properties"><a class="header" href="#decorators-applied-to-properties">Decorators Applied to Properties</a></h2>
+<pre><code>function MyFieldDecorator(o: C, {name}: Binding): void {
+    trace(name);
+}
+
+class C {
+    [MyFieldDecorator]
+    public var x: Number;
+}
+</code></pre>
+<h2 id="decorators-applied-to-methods"><a class="header" href="#decorators-applied-to-methods">Decorators Applied to Methods</a></h2>
+<pre><code>function MyMethodDecorator(o: C, name: String): void {
+    trace(name);
+}
+
+class C {
+    [MyMethodDecorator]
+    public function f(): void {
+    }
+}
+</code></pre>
+<h2 id="reserved-lexical-decorators"><a class="header" href="#reserved-lexical-decorators">Reserved Lexical Decorators</a></h2>
+<p>The following decorators are reserved, but can still be used if they do not directly appear as lexical references:</p>
+<ul>
+<li><code>[Metadata()]</code></li>
+<li><code>[Allow()]</code></li>
+<li><code>[Warn()]</code></li>
+<li><code>[FFI()]</code></li>
+<li>When applied to a class definition, <code>[Value]</code> is reserved</li>
+<li>When applied to a class definition, <code>[DontInit]</code> is reserved</li>
+<li>When applied to an enum definition, <code>[Flags]</code> is reserved</li>
+</ul>
+<p>You can still use them if they are under a namespace or package, such as <code>q.b.Metadata</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="meta-data"><a class="header" href="#meta-data">Meta-data</a></h1>
+<p>Compile-time meta-data can be attached to any definition through the <code>[Metadata()]</code> decorator. It can contain any kind of data.</p>
+<p>Any added meta-data is erased at runtime.</p>
+<pre><code>package q {
+    [Metadata(x = '')]
+    public function f(): void {
+    }
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="strictness"><a class="header" href="#strictness">Strictness</a></h1>
+<h2 id="shadowing-variables"><a class="header" href="#shadowing-variables">Shadowing variables</a></h2>
+<p>The <code>&quot;use shadowing&quot;</code> pragma allows shadowing all variables in a scope:</p>
+<pre><code>{
+    'use shadowing'
+    var x = ''
+    var x = 0
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="standard-built-in-objects"><a class="header" href="#standard-built-in-objects">Standard Built-in Objects</a></h1>
+<p>The standard built-in objects are not yet documented, but they will be similiar to JavaScript ones. For incomplete information on built-in objects, refer to <a href="https://github.com/violetscript/standard/blob/master/spec/builtin-objects.md">github.com/violetscript/standard</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="runtime"><a class="header" href="#runtime">Runtime</a></h1>
+<p>This section lists some runtime details and general optimizations.</p>
+<h2 id="single-item-insertion"><a class="header" href="#single-item-insertion">Single Item Insertion</a></h2>
+<p>The following call takes only one argument, so do not create an throwaway <code>Array</code> for rest arguments:</p>
+<pre><code>array.push(v);
+</code></pre>
+<h2 id="constant-number-iteration"><a class="header" href="#constant-number-iteration">Constant Number Iteration</a></h2>
+<p>The following can be optimized by skipping the creation of the <code>Generator</code> instance and skipping handling the step parameter.</p>
+<pre><code>for each (var i in Number.range(0, 10)) {
+    // procedure
+}
+</code></pre>
+<h2 id="string-representation"><a class="header" href="#string-representation">String Representation</a></h2>
+<p><code>String</code> is either original or a slice of another one. When the type is auto boxed, this is not the case.</p>
+<h2 id="auto-boxing-of-value-types"><a class="header" href="#auto-boxing-of-value-types">Auto Boxing of Value Types</a></h2>
+<p>Value types are interned on auto boxing. Primitive types like <code>Number</code> are interned in more depth, for example, values under &lt; 512 are looked up into a particular collection, <code>String</code>s are divided into collections by length and <code>Boolean</code> is simply binary. These internation collections should preferably consist of weak references whenever possible in the host environment.</p>
+<h2 id="any-type-representation"><a class="header" href="#any-type-representation">Any Type Representation</a></h2>
+<ul>
+<li>In native host environments, for the <code>*</code> type, a <code>undefined</code> value is identified by variant 0, <code>null</code> by variant 1 and anything else is an actual <code>Object</code> reference address.</li>
+</ul>
+<h2 id="union-type-representation"><a class="header" href="#union-type-representation">Union Type Representation</a></h2>
+<p>Union types are structural, however they are differentiated by member order. The first variant starts by the number 0.</p>
+<pre><code>// undefined = 0
+// RegExp = 1
+type UoR = undefined | RegExp;
+
+// RegExp = 0
+// undefined = 1
+type RoU = RegExp | undefined;
+</code></pre>
+<h2 id="math-methods"><a class="header" href="#math-methods">Math methods</a></h2>
+<p>Things like <code>min()</code>, <code>max()</code> and <code>clamp()</code> can be optimized according to given arguments.</p>
+<ul>
+<li><code>min()</code> with 2 arguments
+<ul>
+<li>Specialized types</li>
+</ul>
+</li>
+<li><code>max()</code> with 2 arguments
+<ul>
+<li>Specialized types</li>
+</ul>
+</li>
+<li><code>clamp()</code> with specialized types</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="compiler-guide"><a class="header" href="#compiler-guide">Compiler Guide</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="including-and-excluding-sources"><a class="header" href="#including-and-excluding-sources">Including and Excluding Sources</a></h1>
+<p>The compiler does not accept globbing patterns or specifying a directory for including sources recursively. This is so that you specify sources in the correct order for static property initialization.</p>
+<p>Generally you must have an entry script including other scripts:</p>
+<pre><code>include './script1';
+include './script2';
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

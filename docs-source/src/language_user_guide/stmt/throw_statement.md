@@ -1,0 +1,5 @@
+# Throw Statement
+
+```
+throw someError;
+```

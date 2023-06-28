@@ -1,0 +1,8 @@
+# While Statement
+
+```
+while (c)
+{
+	//
+}
+```
