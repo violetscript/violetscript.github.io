@@ -35,4 +35,5 @@ for each (i in o)
 
 - Object with `proxy::iterateValues` 
 - `Iterable`
+- `Iterator`
 - Any type (`*`)
