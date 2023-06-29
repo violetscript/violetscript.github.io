@@ -23,6 +23,7 @@ function f(): void {
 ## Supported Tags
 
 - `@deprecated`
+- `@hidden`
 - `@example Example section.`
 - `@param paramName Description.`
 - `@return A return value.`
