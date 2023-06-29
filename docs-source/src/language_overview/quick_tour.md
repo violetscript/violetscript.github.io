@@ -103,8 +103,10 @@ e.f(); // 0
 e.valueOf() // 0
 e.toString() // 'x'
 
-const e: E = 0 // ERROR! number must be explicitly
-// converted to E.
+const e: E = 0 // ERROR! number must be
+// explicitly converted
+
+const e: E = 'inexistent'; // ERROR! doesn't exist
 ```
 
 Note that the default user friendly string is a conversion from `SCREAMING_SNAKE_CASE` (constant name) to `screamingSnakeCase`.
