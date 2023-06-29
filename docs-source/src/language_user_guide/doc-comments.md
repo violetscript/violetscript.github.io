@@ -23,22 +23,11 @@ function f(): void {
 ## Supported Tags
 
 - `@deprecated`
+- `@example Example section.`
 - `@param paramName Description.`
 - `@return A return value.`
 - `@throws {C} Optional description.`
 - `@internal Internal comment.`
-
-## Structural Types
-
-VioletDoc comments on individual record fields are not supported currently:
-
-```
-type R = {
-    /**
-     * Some field.
-     */
-    someField: String,
-};
-```
-
-You can attach a VioletDoc comment to the type alias in this situation.
+- `@field {x} Field commment`
+  - Used internally when you add comment to a record field in a type alias to a record type.
+  - It allows dot too for documenting subfields.
