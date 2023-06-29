@@ -1,5 +1,7 @@
 # Quick Tour
 
+## Basics
+
 ```
 trace('Hi!')
 
@@ -51,7 +53,7 @@ function typeSystem(): void {
     const fn: (...arguments: [Number]) => void = () => {}
 }
 
-type TypeAlias = Number;
+type D = Decimal;
 
 function nullability(): void {
     // asserts that `o` is non-null and non-undefined;
@@ -63,13 +65,24 @@ function nullability(): void {
     a?.[i]
     f.()
 }
+```
 
-// enums wrap a numeric type, but are powerful and
-// can define custom properties.
+## Enums
+
+An enum is an object...
+
+- represented in memory as a primitive number;
+- variants are associated with...
+  - an unique user friendly string and
+  - an unique number;
+- that can define custom properties;
+- that, where expected, a variant can omit its name through a string literal;
+
+```
 enum E {
-    X; // string is 'x', numbered 0
-    Y = 'y'; // string is 'y', numbered 1
-    Z = ['z', 10]; // string is 'z', numbered 10
+    X;
+    Y = 'y';
+    Z = ['z', 10];
 
     function f(): void {
         trace(this.valueOf());
@@ -78,10 +91,17 @@ enum E {
 
 const e: E = 'x';
 e.f(); // 0
+e.valueOf() // 0
+e.toString() // 'x'
 
-// flags have many methods by default,
-// such as toggle() and filter().
+const e: E = 0 // ERROR! number must be explicitly
+// converted to E.
 
+## Flags
+
+Flags enums have many methods by default, such as `toggle()` and `filter()`.
+
+```
 [Flags]
 enum F { X; Y; Z; }
 
@@ -89,7 +109,12 @@ const f: F = ['x'];
 const f: F = {x: true};
 const f: F = f.toggle('x');
 trace('x' in f);
+trace('x' not in f);
+```
 
+## Classes
+
+```
 // generic class
 class C.<T> {
     var x: T
@@ -102,7 +127,11 @@ class C.<T> {
     // the type `T!` can be used to remove
     // any undefined and null from the parameter type.
 }
+```
 
+## Packages and Namespaces
+
+```
 // a package is used for sharing items to all
 // programs.
 package com.scientific {
@@ -123,7 +152,11 @@ namespace Q {
 }
 
 Q.for(10);
+```
 
+## Type Testing
+
+```
 function typeTesting(): void {
     if (animal is falcon: Falcon && falcon.name.startsWith('F')) {
         // falcon: Falcon
@@ -173,14 +206,12 @@ const {x!: {}} = o
 ({} = o); // destructuring assignment
 ```
 
-## Include Directive and Multiple Files
+## Include
 
-The `include` directive is mainly used for two purposes:
+Use `include` to:
 
-- Fragmenting implementation of a class into multiple files.
-- Specifying the static initialization order by including scripts in the wished order.
-
-It can appear anywhere.
+- Fragment a class into multiple files.
+- Specifying the initialization order of static properties by including scripts in the wished order.
 
 ```
 include './anotherScript';
@@ -223,33 +254,6 @@ You can still use these decorator names if they're in a namespace or package:
 ```
 [q.b.Metadata]
 class C {
-}
-```
-
-## Type Inference
-
-As of now, function definitions either at the top-level, at a package, at a class or at a namespace won't perform signature type inference and will generate verify errors if any parameter is untyped and a warning if the return is untyped.
-
-There are exceptions:
-
-- Constructor doesn't need return type annotation.
-- Setter followed by getter doesn't need a typed signature.
-- Setter doesn't need return type annotation.
-
-```
-function get x(): Number (10);
-function set x(value) {
-}
-```
-
-Other than this, VioletScript will perform type inference in general for lambdas, enum variants, variable initializers, object initializers and array initializers.
-
-In the future, it'll be possible to override methods with already resolved signature omitting its types, which is often the case for libraries:
-
-```
-class Project extends Node2D {
-    override function process(delta) {
-    }
 }
 ```
 

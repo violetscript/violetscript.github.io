@@ -145,6 +145,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="quick-tour"><a class="header" href="#quick-tour">Quick Tour</a></h1>
+<h2 id="basics"><a class="header" href="#basics">Basics</a></h2>
 <pre><code>trace('Hi!')
 
 var x: Number = 0
@@ -195,7 +196,7 @@ function typeSystem(): void {
     const fn: (...arguments: [Number]) =&gt; void = () =&gt; {}
 }
 
-type TypeAlias = Number;
+type D = Decimal;
 
 function nullability(): void {
     // asserts that `o` is non-null and non-undefined;
@@ -207,13 +208,24 @@ function nullability(): void {
     a?.[i]
     f.()
 }
-
-// enums wrap a numeric type, but are powerful and
-// can define custom properties.
-enum E {
-    X; // string is 'x', numbered 0
-    Y = 'y'; // string is 'y', numbered 1
-    Z = ['z', 10]; // string is 'z', numbered 10
+</code></pre>
+<h2 id="enums"><a class="header" href="#enums">Enums</a></h2>
+<p>An enum is an object...</p>
+<ul>
+<li>represented in memory as a primitive number;</li>
+<li>variants are associated with...
+<ul>
+<li>an unique user friendly string and</li>
+<li>an unique number;</li>
+</ul>
+</li>
+<li>that can define custom properties;</li>
+<li>that, where expected, a variant can omit its name through a string literal;</li>
+</ul>
+<pre><code>enum E {
+    X;
+    Y = 'y';
+    Z = ['z', 10];
 
     function f(): void {
         trace(this.valueOf());
@@ -222,164 +234,176 @@ enum E {
 
 const e: E = 'x';
 e.f(); // 0
+e.valueOf() // 0
+e.toString() // 'x'
 
-// flags have many methods by default,
-// such as toggle() and filter().
+const e: E = 0 // ERROR! number must be explicitly
+// converted to E.
 
-[Flags]
-enum F { X; Y; Z; }
+## Flags
 
-const f: F = ['x'];
+Flags enums have many methods by default, such as `toggle()` and `filter()`.
+
+</code></pre>
+<p>[Flags]
+enum F { X; Y; Z; }</p>
+<p>const f: F = ['x'];
 const f: F = {x: true};
 const f: F = f.toggle('x');
 trace('x' in f);
+trace('x' not in f);</p>
+<pre><code>
+## Classes
 
-// generic class
-class C.&lt;T&gt; {
-    var x: T
-
-    // constructor
-    function C(x: T) {
-        this.x = x
-    }
-
-    // the type `T!` can be used to remove
-    // any undefined and null from the parameter type.
+</code></pre>
+<p>// generic class
+class C.<T> {
+var x: T</p>
+<pre><code>// constructor
+function C(x: T) {
+    this.x = x
 }
 
-// a package is used for sharing items to all
+// the type `T!` can be used to remove
+// any undefined and null from the parameter type.
+</code></pre>
+<p>}</p>
+<pre><code>
+## Packages and Namespaces
+
+</code></pre>
+<p>// a package is used for sharing items to all
 // programs.
 package com.scientific {
-    // note that curly brackets are optional
-}
-
-// a namespace acts as a simple container for
+// note that curly brackets are optional
+}</p>
+<p>// a namespace acts as a simple container for
 // other items.
 namespace Q {
-    class C {
+class C {
+}</p>
+<pre><code>// define a function using the reserved word 'for'.
+// use '#' to escape a reserved word.
+function #for(x: Number): Number (
+    x + 10
+);
+</code></pre>
+<p>}</p>
+<p>Q.for(10);</p>
+<pre><code>
+## Type Testing
+
+</code></pre>
+<p>function typeTesting(): void {
+if (animal is falcon: Falcon &amp;&amp; falcon.name.startsWith('F')) {
+// falcon: Falcon
+}</p>
+<pre><code>switch type (object) {
+    case (long: Long) {
+        // Long
     }
-
-    // define a function using the reserved word 'for'.
-    // use '#' to escape a reserved word.
-    function #for(x: Number): Number (
-        x + 10
-    );
-}
-
-Q.for(10);
-
-function typeTesting(): void {
-    if (animal is falcon: Falcon &amp;&amp; falcon.name.startsWith('F')) {
-        // falcon: Falcon
-    }
-
-    switch type (object) {
-        case (long: Long) {
-            // Long
-        }
-        default {
-            // anything else
-        }
+    default {
+        // anything else
     }
 }
 </code></pre>
-<h2 id="packages"><a class="header" href="#packages">Packages</a></h2>
-<pre><code>package q.f {
-    public const someString = 'violetscript';
-}
+<p>}</p>
+<pre><code>
+## Packages
 
-import q.f.*; // or
-import q.f.someString;
 </code></pre>
-<p>The curly brackets are optional:</p>
-<pre><code>package q.f;
+<p>package q.f {
+public const someString = 'violetscript';
+}</p>
+<p>import q.f.*; // or
+import q.f.someString;</p>
+<pre><code>
+The curly brackets are optional:
+
+</code></pre>
+<p>package q.f;
 public function work(): void {
-}
-</code></pre>
-<h2 id="destructuring"><a class="header" href="#destructuring">Destructuring</a></h2>
-<pre><code>const {} = o
-const [a] = o
+}</p>
+<pre><code>
+## Destructuring
 
-// use '!' to assert non-null
+</code></pre>
+<p>const {} = o
+const [a] = o</p>
+<p>// use '!' to assert non-null
 // and non-undefined
 const [a!] = a
-const {x!: {}} = o
+const {x!: {}} = o</p>
+<p>({} = o); // destructuring assignment</p>
+<pre><code>
+## Include
 
-({} = o); // destructuring assignment
+Use `include` to:
+
+- Fragment a class into multiple files.
+- Specifying the initialization order of static properties by including scripts in the wished order.
+
 </code></pre>
-<h2 id="include-directive-and-multiple-files"><a class="header" href="#include-directive-and-multiple-files">Include Directive and Multiple Files</a></h2>
-<p>The <code>include</code> directive is mainly used for two purposes:</p>
-<ul>
-<li>Fragmenting implementation of a class into multiple files.</li>
-<li>Specifying the static initialization order by including scripts in the wished order.</li>
-</ul>
-<p>It can appear anywhere.</p>
-<pre><code>include './anotherScript';
+<p>include './anotherScript';</p>
+<pre><code>
+## Properties
+
+`o.x` and `o['x']` are not the same thing as in ECMAScript. `o.x` and `Reflect.get(o, 'x')` are equivalent.
+
+## Equality
+
+Auto-boxed types do not lose equality.
+
 </code></pre>
-<h2 id="properties"><a class="header" href="#properties">Properties</a></h2>
-<p><code>o.x</code> and <code>o['x']</code> are not the same thing as in ECMAScript. <code>o.x</code> and <code>Reflect.get(o, 'x')</code> are equivalent.</p>
-<h2 id="equality"><a class="header" href="#equality">Equality</a></h2>
-<p>Auto-boxed types do not lose equality.</p>
-<pre><code>var x: Object = 0;
+<p>var x: Object = 0;
 var y: Object = 0;
-assert(x == y);
+assert(x == y);</p>
+<pre><code>
+## Decorators
+
 </code></pre>
-<h2 id="decorators"><a class="header" href="#decorators">Decorators</a></h2>
-<pre><code>[D]
+<p>[D]
 class C {
-}
+}</p>
+<pre><code>
+Note that six lexical decorator names are reserved in different contexts.
+
+- `Flags` is reserved for `enum`
+- `Value` is reserved for `class`
+- `DontInit` is reserved for `clas`
+- `Metadata` is always reserved
+- `Allow` is always reserved
+- `Warn` is always reserved
+- `FFI` is always reserved
+
+You can still use these decorator names if they're in a namespace or package:
+
 </code></pre>
-<p>Note that six lexical decorator names are reserved in different contexts.</p>
-<ul>
-<li><code>Flags</code> is reserved for <code>enum</code></li>
-<li><code>Value</code> is reserved for <code>class</code></li>
-<li><code>DontInit</code> is reserved for <code>clas</code></li>
-<li><code>Metadata</code> is always reserved</li>
-<li><code>Allow</code> is always reserved</li>
-<li><code>Warn</code> is always reserved</li>
-<li><code>FFI</code> is always reserved</li>
-</ul>
-<p>You can still use these decorator names if they're in a namespace or package:</p>
-<pre><code>[q.b.Metadata]
+<p>[q.b.Metadata]
 class C {
-}
+}</p>
+<pre><code>
+## Markup
+
+A class must implement `IMarkupContainer` for supporting children in markup.
+
 </code></pre>
-<h2 id="type-inference"><a class="header" href="#type-inference">Type Inference</a></h2>
-<p>As of now, function definitions either at the top-level, at a package, at a class or at a namespace won't perform signature type inference and will generate verify errors if any parameter is untyped and a warning if the return is untyped.</p>
-<p>There are exceptions:</p>
-<ul>
-<li>Constructor doesn't need return type annotation.</li>
-<li>Setter followed by getter doesn't need a typed signature.</li>
-<li>Setter doesn't need return type annotation.</li>
-</ul>
-<pre><code>function get x(): Number (10);
-function set x(value) {
-}
-</code></pre>
-<p>Other than this, VioletScript will perform type inference in general for lambdas, enum variants, variable initializers, object initializers and array initializers.</p>
-<p>In the future, it'll be possible to override methods with already resolved signature omitting its types, which is often the case for libraries:</p>
-<pre><code>class Project extends Node2D {
-    override function process(delta) {
-    }
-}
-</code></pre>
-<h2 id="markup"><a class="header" href="#markup">Markup</a></h2>
-<p>A class must implement <code>IMarkupContainer</code> for supporting children in markup.</p>
-<pre><code>// equivalent
+<p>// equivalent
 var o = new C
 o.x = Infinity
-var o = &lt;C x={Infinity}/&gt;
+var o = <C x={Infinity}/></p>
+<pre><code>
+Markup syntax is not based on XML and cannot contain text directly. There are different ways of adding text:
+
 </code></pre>
-<p>Markup syntax is not based on XML and cannot contain text directly. There are different ways of adding text:</p>
-<pre><code>&lt;Container&gt;&lt;Text text='Some text'/&gt;&lt;/Container&gt;
+<p><Container><Text text='Some text'/></Container>
 // if child type can be string
-&lt;Container&gt;{['Some text', 'Another text']}&lt;/Container&gt;
-</code></pre>
-<h2 id="code-safety"><a class="header" href="#code-safety">Code Safety</a></h2>
-<ul>
-<li>Assignments are only allowed in proper contexts, otherwise that would lead to productivity issues.</li>
-<li>You will use the <code>!</code> operator very often, including in destructuring, for asserting that a base is not <code>undefined</code> and <code>null</code>.</li>
-</ul>
+<Container>{['Some text', 'Another text']}</Container></p>
+<pre><code>
+## Code Safety
+
+- Assignments are only allowed in proper contexts, otherwise that would lead to productivity issues.
+- You will use the `!` operator very often, including in destructuring, for asserting that a base is not `undefined` and `null`.</code></pre>
 
                     </main>
 
