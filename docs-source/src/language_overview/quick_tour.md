@@ -96,6 +96,7 @@ e.toString() // 'x'
 
 const e: E = 0 // ERROR! number must be explicitly
 // converted to E.
+```
 
 ## Flags
 

@@ -242,171 +242,147 @@ e.toString() // 'x'
 
 const e: E = 0 // ERROR! number must be explicitly
 // converted to E.
-
-## Flags
-
-Flags enums have many methods by default, such as `toggle()` and `filter()`.
-
 </code></pre>
-<p>[Flags]
-enum F { X; Y; Z; }</p>
-<p>const f: F = ['x'];
+<h2 id="flags"><a class="header" href="#flags">Flags</a></h2>
+<p>Flags enums have many methods by default, such as <code>toggle()</code> and <code>filter()</code>.</p>
+<pre><code>[Flags]
+enum F { X; Y; Z; }
+
+const f: F = ['x'];
 const f: F = {x: true};
 const f: F = f.toggle('x');
 trace('x' in f);
-trace('x' not in f);</p>
-<pre><code>
-## Classes
-
+trace('x' not in f);
 </code></pre>
-<p>// generic class
-class C.<T> {
-var x: T</p>
-<pre><code>// constructor
-function C(x: T) {
-    this.x = x
+<h2 id="classes"><a class="header" href="#classes">Classes</a></h2>
+<pre><code>// generic class
+class C.&lt;T&gt; {
+    var x: T
+
+    // constructor
+    function C(x: T) {
+        this.x = x
+    }
+
+    // the type `T!` can be used to remove
+    // any undefined and null from the parameter type.
 }
-
-// the type `T!` can be used to remove
-// any undefined and null from the parameter type.
 </code></pre>
-<p>}</p>
-<pre><code>
-## Packages and Namespaces
-
-</code></pre>
-<p>// a package is used for sharing items to all
+<h2 id="packages-and-namespaces"><a class="header" href="#packages-and-namespaces">Packages and Namespaces</a></h2>
+<pre><code>// a package is used for sharing items to all
 // programs.
 package com.scientific {
-// note that curly brackets are optional
-}</p>
-<p>// a namespace acts as a simple container for
+    // note that curly brackets are optional
+}
+
+// a namespace acts as a simple container for
 // other items.
 namespace Q {
-class C {
-}</p>
-<pre><code>// define a function using the reserved word 'for'.
-// use '#' to escape a reserved word.
-function #for(x: Number): Number (
-    x + 10
-);
-</code></pre>
-<p>}</p>
-<p>Q.for(10);</p>
-<pre><code>
-## Type Testing
-
-</code></pre>
-<p>function typeTesting(): void {
-if (animal is falcon: Falcon &amp;&amp; falcon.name.startsWith('F')) {
-// falcon: Falcon
-}</p>
-<pre><code>switch type (object) {
-    case (long: Long) {
-        // Long
+    class C {
     }
-    default {
-        // anything else
+
+    // define a function using the reserved word 'for'.
+    // use '#' to escape a reserved word.
+    function #for(x: Number): Number (
+        x + 10
+    );
+}
+
+Q.for(10);
+</code></pre>
+<h2 id="type-testing"><a class="header" href="#type-testing">Type Testing</a></h2>
+<pre><code>function typeTesting(): void {
+    if (animal is falcon: Falcon &amp;&amp; falcon.name.startsWith('F')) {
+        // falcon: Falcon
+    }
+
+    switch type (object) {
+        case (long: Long) {
+            // Long
+        }
+        default {
+            // anything else
+        }
     }
 }
 </code></pre>
-<p>}</p>
-<pre><code>
-## Packages
+<h2 id="packages"><a class="header" href="#packages">Packages</a></h2>
+<pre><code>package q.f {
+    public const someString = 'violetscript';
+}
 
+import q.f.*; // or
+import q.f.someString;
 </code></pre>
-<p>package q.f {
-public const someString = 'violetscript';
-}</p>
-<p>import q.f.*; // or
-import q.f.someString;</p>
-<pre><code>
-The curly brackets are optional:
-
-</code></pre>
-<p>package q.f;
+<p>The curly brackets are optional:</p>
+<pre><code>package q.f;
 public function work(): void {
-}</p>
-<pre><code>
-## Destructuring
-
+}
 </code></pre>
-<p>const {} = o
-const [a] = o</p>
-<p>// use '!' to assert non-null
+<h2 id="destructuring"><a class="header" href="#destructuring">Destructuring</a></h2>
+<pre><code>const {} = o
+const [a] = o
+
+// use '!' to assert non-null
 // and non-undefined
 const [a!] = a
-const {x!: {}} = o</p>
-<p>({} = o); // destructuring assignment</p>
-<pre><code>
-## Include
+const {x!: {}} = o
 
-Use `include` to:
-
-- Fragment a class into multiple files.
-- Specifying the initialization order of static properties by including scripts in the wished order.
-
+({} = o); // destructuring assignment
 </code></pre>
-<p>include './anotherScript';</p>
-<pre><code>
-## Properties
-
-`o.x` and `o['x']` are not the same thing as in ECMAScript. `o.x` and `Reflect.get(o, 'x')` are equivalent.
-
-## Equality
-
-Auto-boxed types do not lose equality.
-
+<h2 id="include"><a class="header" href="#include">Include</a></h2>
+<p>Use <code>include</code> to:</p>
+<ul>
+<li>Fragment a class into multiple files.</li>
+<li>Specifying the initialization order of static properties by including scripts in the wished order.</li>
+</ul>
+<pre><code>include './anotherScript';
 </code></pre>
-<p>var x: Object = 0;
+<h2 id="properties"><a class="header" href="#properties">Properties</a></h2>
+<p><code>o.x</code> and <code>o['x']</code> are not the same thing as in ECMAScript. <code>o.x</code> and <code>Reflect.get(o, 'x')</code> are equivalent.</p>
+<h2 id="equality"><a class="header" href="#equality">Equality</a></h2>
+<p>Auto-boxed types do not lose equality.</p>
+<pre><code>var x: Object = 0;
 var y: Object = 0;
-assert(x == y);</p>
-<pre><code>
-## Decorators
-
+assert(x == y);
 </code></pre>
-<p>[D]
+<h2 id="decorators"><a class="header" href="#decorators">Decorators</a></h2>
+<pre><code>[D]
 class C {
-}</p>
-<pre><code>
-Note that six lexical decorator names are reserved in different contexts.
-
-- `Flags` is reserved for `enum`
-- `Value` is reserved for `class`
-- `DontInit` is reserved for `clas`
-- `Metadata` is always reserved
-- `Allow` is always reserved
-- `Warn` is always reserved
-- `FFI` is always reserved
-
-You can still use these decorator names if they're in a namespace or package:
-
+}
 </code></pre>
-<p>[q.b.Metadata]
+<p>Note that six lexical decorator names are reserved in different contexts.</p>
+<ul>
+<li><code>Flags</code> is reserved for <code>enum</code></li>
+<li><code>Value</code> is reserved for <code>class</code></li>
+<li><code>DontInit</code> is reserved for <code>clas</code></li>
+<li><code>Metadata</code> is always reserved</li>
+<li><code>Allow</code> is always reserved</li>
+<li><code>Warn</code> is always reserved</li>
+<li><code>FFI</code> is always reserved</li>
+</ul>
+<p>You can still use these decorator names if they're in a namespace or package:</p>
+<pre><code>[q.b.Metadata]
 class C {
-}</p>
-<pre><code>
-## Markup
-
-A class must implement `IMarkupContainer` for supporting children in markup.
-
+}
 </code></pre>
-<p>// equivalent
+<h2 id="markup"><a class="header" href="#markup">Markup</a></h2>
+<p>A class must implement <code>IMarkupContainer</code> for supporting children in markup.</p>
+<pre><code>// equivalent
 var o = new C
 o.x = Infinity
-var o = <C x={Infinity}/></p>
-<pre><code>
-Markup syntax is not based on XML and cannot contain text directly. There are different ways of adding text:
-
+var o = &lt;C x={Infinity}/&gt;
 </code></pre>
-<p><Container><Text text='Some text'/></Container>
+<p>Markup syntax is not based on XML and cannot contain text directly. There are different ways of adding text:</p>
+<pre><code>&lt;Container&gt;&lt;Text text='Some text'/&gt;&lt;/Container&gt;
 // if child type can be string
-<Container>{['Some text', 'Another text']}</Container></p>
-<pre><code>
-## Code Safety
-
-- Assignments are only allowed in proper contexts, otherwise that would lead to productivity issues.
-- You will use the `!` operator very often, including in destructuring, for asserting that a base is not `undefined` and `null`.</code></pre>
+&lt;Container&gt;{['Some text', 'Another text']}&lt;/Container&gt;
+</code></pre>
+<h2 id="code-safety"><a class="header" href="#code-safety">Code Safety</a></h2>
+<ul>
+<li>Assignments are only allowed in proper contexts, otherwise that would lead to productivity issues.</li>
+<li>You will use the <code>!</code> operator very often, including in destructuring, for asserting that a base is not <code>undefined</code> and <code>null</code>.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reflection"><a class="header" href="#reflection">Reflection</a></h1>
 <h2 id="constructing-types-dynamically"><a class="header" href="#constructing-types-dynamically">Constructing Types Dynamically</a></h2>
 <p>Use <code>Reflect.construct()</code> to construct a type dynamically, rather than <code>new</code>:</p>
@@ -678,7 +654,7 @@ var f: F = undefined
 var f: F = {}
 var f: F = []
 </code></pre>
-<h2 id="flags"><a class="header" href="#flags">Flags</a></h2>
+<h2 id="flags-1"><a class="header" href="#flags-1">Flags</a></h2>
 <p>Flags enumerations, prefixed with the special <code>Flags</code> decorator, define combinatory variants. A variant number is either 1 or power of two.</p>
 <pre><code>[Flags]
 enum F {
@@ -708,7 +684,7 @@ f == undefined
 <pre><code>enum E wraps BigInt {
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="classes"><a class="header" href="#classes">Classes</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="classes-1"><a class="header" href="#classes-1">Classes</a></h1>
 <pre><code>class C {
 	// constructor
 	function C() {
@@ -1226,7 +1202,7 @@ return v;
 include './core';
 include './core/index.vs';
 </code></pre>
-<h2 id="packages"><a class="header" href="#packages">Packages</a></h2>
+<h2 id="packages-1"><a class="header" href="#packages-1">Packages</a></h2>
 <p>It is allowed to define packages in an included script as long as it is included from a top-level context:</p>
 <pre><code>// foo.vs
 include './bar';
@@ -1309,7 +1285,7 @@ function f(): void {
 <pre><code>0x0A;
 0b00010;
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="packages-1"><a class="header" href="#packages-1">Packages</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="packages-2"><a class="header" href="#packages-2">Packages</a></h1>
 <p>A package is a globally reusable namespace. The following program demonstrates basic use of <code>package</code> definitions:</p>
 <pre><code>package {
 	// global package
@@ -1420,7 +1396,7 @@ iterator .next(); // {done: true, value: undefined}
 <pre><code>function genericFunction.&lt;T&gt;(): void {
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="destructuring"><a class="header" href="#destructuring">Destructuring</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="destructuring-1"><a class="header" href="#destructuring-1">Destructuring</a></h1>
 <h2 id="array-destructuring"><a class="header" href="#array-destructuring">Array Destructuring</a></h2>
 <p>Array destructuring syntax can in addition be used for tuples and user proxies.</p>
 <pre><code>[x, y] = someArray;
@@ -1432,7 +1408,7 @@ iterator .next(); // {done: true, value: undefined}
 <p>You may get a verify error when destructuring from something that contains <code>undefined</code> or <code>null</code>. You can use exclamation (<code>!</code>) to assert the base is non-null and non-undefined:</p>
 <pre><code>const [{x!: {y}}!]! = o;
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="decorators"><a class="header" href="#decorators">Decorators</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="decorators-1"><a class="header" href="#decorators-1">Decorators</a></h1>
 <p>A decorator is a function that either returns <code>void</code> or returns another function that returns <code>void</code>, applied to either a type, property or method as expressions enclosed by square brackets. Decorators cannot be applied everywhere.</p>
 <p><code>[D(x = 10)]</code> is equivalent to <code>[D({x: 10})]</code>.</p>
 <p>Note that 4 lexical names may be reserved in some contexts. Jump to the <em>Reserved Lexical Decorators</em> section below for quick information.</p>
