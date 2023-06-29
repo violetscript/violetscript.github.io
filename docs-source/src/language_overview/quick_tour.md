@@ -1,5 +1,14 @@
 # Quick Tour
 
+## Why
+
+VioletScript is a faster version of JavaScript efficient as C# or Java.
+
+## Status
+
+- Type checker is done.
+- Codegen is not yet done. It'll target either WebAssembly or C++.
+
 ## Basics
 
 ```
@@ -264,6 +273,18 @@ Markup syntax is not based on XML and cannot contain text directly. There are di
 // if child type can be string
 <Container>{['Some text', 'Another text']}</Container>
 ```
+
+## Primitive Types
+
+- `Boolean`
+- `String`
+- `Number`
+- `Decimal`
+- `Byte`
+- `Short`
+- `Int`
+- `Long`
+- `BigInt`
 
 ## Code Safety
 
