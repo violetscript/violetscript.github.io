@@ -34,5 +34,5 @@ for each (i in o)
 `for each` should work with:
 
 - Object with `proxy::iterateValues` 
-- Iterator
+- `Iterable`
 - Any type (`*`)
