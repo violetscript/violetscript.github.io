@@ -269,11 +269,16 @@ class C.&lt;T&gt; {
 }
 </code></pre>
 <h2 id="packages-and-namespaces"><a class="header" href="#packages-and-namespaces">Packages and Namespaces</a></h2>
-<pre><code>// a package is used for sharing items to all
-// programs.
-package com.scientific {
-    // note that curly brackets are optional
+<pre><code>// shares items to all scripts.
+package q.f {
+    public const someString = 'violetscript'
 }
+
+import q.f.*;
+import q.f.someString;
+
+// block brackets are optional
+package q.b;
 
 // a namespace acts as a simple container for
 // other items.
@@ -304,19 +309,6 @@ Q.for(10);
             // anything else
         }
     }
-}
-</code></pre>
-<h2 id="packages"><a class="header" href="#packages">Packages</a></h2>
-<pre><code>package q.f {
-    public const someString = 'violetscript';
-}
-
-import q.f.*; // or
-import q.f.someString;
-</code></pre>
-<p>The curly brackets are optional:</p>
-<pre><code>package q.f;
-public function work(): void {
 }
 </code></pre>
 <h2 id="destructuring"><a class="header" href="#destructuring">Destructuring</a></h2>
@@ -1202,7 +1194,7 @@ return v;
 include './core';
 include './core/index.vs';
 </code></pre>
-<h2 id="packages-1"><a class="header" href="#packages-1">Packages</a></h2>
+<h2 id="packages"><a class="header" href="#packages">Packages</a></h2>
 <p>It is allowed to define packages in an included script as long as it is included from a top-level context:</p>
 <pre><code>// foo.vs
 include './bar';
@@ -1285,7 +1277,7 @@ function f(): void {
 <pre><code>0x0A;
 0b00010;
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="packages-2"><a class="header" href="#packages-2">Packages</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="packages-1"><a class="header" href="#packages-1">Packages</a></h1>
 <p>A package is a globally reusable namespace. The following program demonstrates basic use of <code>package</code> definitions:</p>
 <pre><code>package {
 	// global package

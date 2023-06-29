@@ -133,11 +133,16 @@ class C.<T> {
 ## Packages and Namespaces
 
 ```
-// a package is used for sharing items to all
-// programs.
-package com.scientific {
-    // note that curly brackets are optional
+// shares items to all scripts.
+package q.f {
+    public const someString = 'violetscript'
 }
+
+import q.f.*;
+import q.f.someString;
+
+// block brackets are optional
+package q.b;
 
 // a namespace acts as a simple container for
 // other items.
@@ -171,25 +176,6 @@ function typeTesting(): void {
             // anything else
         }
     }
-}
-```
-
-## Packages
-
-```
-package q.f {
-    public const someString = 'violetscript';
-}
-
-import q.f.*; // or
-import q.f.someString;
-```
-
-The curly brackets are optional:
-
-```
-package q.f;
-public function work(): void {
 }
 ```
 

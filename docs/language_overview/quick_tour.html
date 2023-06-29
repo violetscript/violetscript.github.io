@@ -266,11 +266,16 @@ class C.&lt;T&gt; {
 }
 </code></pre>
 <h2 id="packages-and-namespaces"><a class="header" href="#packages-and-namespaces">Packages and Namespaces</a></h2>
-<pre><code>// a package is used for sharing items to all
-// programs.
-package com.scientific {
-    // note that curly brackets are optional
+<pre><code>// shares items to all scripts.
+package q.f {
+    public const someString = 'violetscript'
 }
+
+import q.f.*;
+import q.f.someString;
+
+// block brackets are optional
+package q.b;
 
 // a namespace acts as a simple container for
 // other items.
@@ -301,19 +306,6 @@ Q.for(10);
             // anything else
         }
     }
-}
-</code></pre>
-<h2 id="packages"><a class="header" href="#packages">Packages</a></h2>
-<pre><code>package q.f {
-    public const someString = 'violetscript';
-}
-
-import q.f.*; // or
-import q.f.someString;
-</code></pre>
-<p>The curly brackets are optional:</p>
-<pre><code>package q.f;
-public function work(): void {
 }
 </code></pre>
 <h2 id="destructuring"><a class="header" href="#destructuring">Destructuring</a></h2>
