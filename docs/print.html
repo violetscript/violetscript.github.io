@@ -555,12 +555,12 @@ const o = Reflect.construct(c, [firstArgument]);
 <p>These proxies enable use of the literal <code>this</code>.</p>
 <pre><code>class C {
     // for..in
-    proxy function iterateKeys(): Generator.&lt;K&gt; {
+    proxy function iterateKeys(): Iterator.&lt;K&gt; {
         // yield
     }
 
     // for each
-    proxy function iterateValues(): Generator.&lt;V&gt; {
+    proxy function iterateValues(): Iterator.&lt;V&gt; {
         // yield
     }
 }
@@ -1368,16 +1368,16 @@ native function fNative(): void;
 <p>A function is a generator if it uses the <code>yield</code> operator.</p>
 <p>Remarks:</p>
 <ul>
-<li>Generator functions return a Generator iterator.</li>
-<li>A generator function finishes returning undefined.</li>
+<li>Generator functions return a Generator object, which is an iterator.</li>
+<li>A generator function finishes returning <code>undefined</code>.</li>
 </ul>
-<pre><code>function f(): Generator.&lt;Number&gt; {
+<pre><code>function f(): Iterator.&lt;Number&gt; {
 	yield 10;
 }
 
-const it = f(); // Iterator.&lt;Number&gt;
-it.next(); // {done: false, value: 10}
-it.next(); // {done: true, value: undefined}
+const iterator = f(); // Iterator.&lt;Number&gt;
+iterator .next(); // {done: false, value: 10}
+iterator .next(); // {done: true, value: undefined}
 </code></pre>
 <h2 id="asynchronous-functions"><a class="header" href="#asynchronous-functions">Asynchronous Functions</a></h2>
 <p>A function is asynchronous if it uses the <code>await</code> operator.</p>

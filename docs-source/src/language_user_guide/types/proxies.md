@@ -134,12 +134,12 @@ These proxies enable use of the literal `this`.
 ```
 class C {
     // for..in
-    proxy function iterateKeys(): Generator.<K> {
+    proxy function iterateKeys(): Iterator.<K> {
         // yield
     }
 
     // for each
-    proxy function iterateValues(): Generator.<V> {
+    proxy function iterateValues(): Iterator.<V> {
         // yield
     }
 }

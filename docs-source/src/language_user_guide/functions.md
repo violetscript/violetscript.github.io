@@ -27,17 +27,17 @@ A function is a generator if it uses the `yield` operator.
 
 Remarks:
 
-- Generator functions return a Generator iterator.
-- A generator function finishes returning undefined.
+- Generator functions return a Generator object, which is an iterator.
+- A generator function finishes returning `undefined`.
 
 ```
-function f(): Generator.<Number> {
+function f(): Iterator.<Number> {
 	yield 10;
 }
 
-const it = f(); // Iterator.<Number>
-it.next(); // {done: false, value: 10}
-it.next(); // {done: true, value: undefined}
+const iterator = f(); // Iterator.<Number>
+iterator .next(); // {done: false, value: 10}
+iterator .next(); // {done: true, value: undefined}
 ```
 
 ## Asynchronous Functions

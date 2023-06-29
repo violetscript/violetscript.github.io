@@ -258,12 +258,12 @@
 <p>These proxies enable use of the literal <code>this</code>.</p>
 <pre><code>class C {
     // for..in
-    proxy function iterateKeys(): Generator.&lt;K&gt; {
+    proxy function iterateKeys(): Iterator.&lt;K&gt; {
         // yield
     }
 
     // for each
-    proxy function iterateValues(): Generator.&lt;V&gt; {
+    proxy function iterateValues(): Iterator.&lt;V&gt; {
         // yield
     }
 }
