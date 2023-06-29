@@ -98,6 +98,8 @@ const e: E = 0 // ERROR! number must be explicitly
 // converted to E.
 ```
 
+Note that the default user friendly string is a conversion from `SCREAMING_SNAKE_CASE` (constant name) to `screamingSnakeCase`.
+
 ## Flags
 
 Flags enums have many methods by default, such as `toggle()` and `filter()`.
