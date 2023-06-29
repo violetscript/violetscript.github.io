@@ -276,13 +276,3 @@ Markup syntax is not based on XML and cannot contain text directly. There are di
 
 - Assignments are only allowed in proper contexts, otherwise that would lead to productivity issues.
 - You will use the `!` operator very often, including in destructuring, for asserting that a base is not `undefined` and `null`.
-
-## Future Plans: Package Manager
-
-The compiler did not happen yet, only the type checker. Once things get going, a package manager will be developed. Idea: use of `include` directives to add dependencies in the entry point:
-
-```
-include 'com.framework.core@0.1.0';
-```
-
-All publishable packages would have a configuration file anyway.

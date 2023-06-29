@@ -383,11 +383,6 @@ var o = &lt;C x={Infinity}/&gt;
 <li>Assignments are only allowed in proper contexts, otherwise that would lead to productivity issues.</li>
 <li>You will use the <code>!</code> operator very often, including in destructuring, for asserting that a base is not <code>undefined</code> and <code>null</code>.</li>
 </ul>
-<h2 id="future-plans-package-manager"><a class="header" href="#future-plans-package-manager">Future Plans: Package Manager</a></h2>
-<p>The compiler did not happen yet, only the type checker. Once things get going, a package manager will be developed. Idea: use of <code>include</code> directives to add dependencies in the entry point:</p>
-<pre><code>include 'com.framework.core@0.1.0';
-</code></pre>
-<p>All publishable packages would have a configuration file anyway.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reflection"><a class="header" href="#reflection">Reflection</a></h1>
 <h2 id="constructing-types-dynamically"><a class="header" href="#constructing-types-dynamically">Constructing Types Dynamically</a></h2>
 <p>Use <code>Reflect.construct()</code> to construct a type dynamically, rather than <code>new</code>:</p>
