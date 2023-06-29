@@ -2,6 +2,7 @@
 
 ```
 k in o;
+k not in o;
 x + y
 x - y
 x * y
