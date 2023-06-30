@@ -84,6 +84,8 @@ f == undefined
 
 ## Custom Numeric Type
 
+Any numeric type can be used, including floating points. By default `enum` uses `Int`.
+
 Use the context word `wraps` to use a custom numeric type for an enumeration.
 
 ```
