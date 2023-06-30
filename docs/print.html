@@ -1521,16 +1521,16 @@ type UoR = undefined | RegExp;
 type RoU = RegExp | undefined;
 </code></pre>
 <h2 id="math-methods"><a class="header" href="#math-methods">Math methods</a></h2>
-<p>Things like <code>min()</code>, <code>max()</code> and <code>clamp()</code> can be optimized according to given arguments.</p>
+<p>Things like <code>min()</code>, <code>max()</code> and <code>clamp()</code> can be optimized according to given arguments ahead of time.</p>
 <ul>
 <li><code>min()</code> with 2 arguments
 <ul>
-<li>Specialized types</li>
+<li>Specialized types as it takes <code>*</code></li>
 </ul>
 </li>
 <li><code>max()</code> with 2 arguments
 <ul>
-<li>Specialized types</li>
+<li>Specialized types as it takes <code>*</code></li>
 </ul>
 </li>
 <li><code>clamp()</code> with specialized types</li>

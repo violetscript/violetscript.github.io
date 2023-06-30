@@ -48,10 +48,10 @@ type RoU = RegExp | undefined;
 
 ## Math methods
 
-Things like `min()`, `max()` and `clamp()` can be optimized according to given arguments.
+Things like `min()`, `max()` and `clamp()` can be optimized according to given arguments ahead of time.
 
 - `min()` with 2 arguments
-  - Specialized types
+  - Specialized types as it takes `*`
 - `max()` with 2 arguments
-  - Specialized types
+  - Specialized types as it takes `*`
 - `clamp()` with specialized types
