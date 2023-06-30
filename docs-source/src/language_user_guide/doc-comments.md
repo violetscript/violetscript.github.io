@@ -32,3 +32,13 @@ function f(): void {
 - `@field {x} Field commment`
   - Used internally when you add comment to a record field in a type alias to a record type.
   - It allows dot too for documenting subfields.
+
+## Shortcut Reference Links
+
+```
+/**
+ * [lexicalItemName]
+ * [`lexicalItemName`]
+ * [customLexicalItemName][lexicalItemName]
+ */
+```
