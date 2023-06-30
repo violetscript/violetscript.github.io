@@ -11,7 +11,7 @@ const o = Reflect.construct(c, [firstArgument]);
 
 ## Type Inspection
 
-Use `Reflect.typeOf()` to get a type meta-object. It returns one of:
+Use `Reflect.describeType()` to get a type meta-object. It returns one of:
 
 - `null`
 - `AnyType`
