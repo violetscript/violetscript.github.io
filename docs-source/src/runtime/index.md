@@ -54,4 +54,5 @@ Things like `min()`, `max()` and `clamp()` can be optimized according to given a
   - Specialized types as it takes `*`
 - `max()` with 2 arguments
   - Specialized types as it takes `*`
+- `max()` or `min` with a list of numeric arguments of the same type
 - `clamp()` with specialized types
