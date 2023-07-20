@@ -148,7 +148,7 @@ class C.<T> {
 ```
 // shares items to all scripts.
 package q.f {
-    public const someString = 'violetscript'
+    const someString = 'violetscript'
 }
 
 import q.f.*;
@@ -172,6 +172,17 @@ namespace Q {
 
 Q.for(10);
 ```
+
+## Visibility
+
+Everything is `public` by default, so you don't need to use visibility modifiers:
+
+- `public`
+- `private`
+- `protected`
+- `internal`
+
+They're also verbose, so you may prefer using a `_` prefix.
 
 ## Type Testing
 

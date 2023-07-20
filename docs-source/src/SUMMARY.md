@@ -79,6 +79,7 @@
   - [Decorators](./language_user_guide/decorators.md)
   - [Meta-data](./language_user_guide/metadata.md)
   - [Strictness](./language_user_guide/strictness.md)
+  - [Item Visibility](./language_user_guide/item_visibility.md)
   - [Standard Built-in Objects](./language_user_guide/builtin_objects.md)
 - [Runtime](./runtime/index.md)
 - [Compiler Guide](./compiler_guide/index.md)
